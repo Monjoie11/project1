@@ -6,53 +6,37 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import static com.revature.util.LoggerUtil.*;
 
-/*
- * Servlet Lifecycle:
- * 
- * init - Initializes the servlet in the servlet container (web container)
- * 			Called once
- * 				- either on first request(default) or on startup
- * 
- * service	- Handles a request to this servlet.  Basically forwards request to appropriate method(doGet, doPost, doDelete, doHead ...)
- * 			- NOTE: this method is abstract in GenericServlet
- * 			- NOTE: this method is implemented in HttpServlet
- * 			- Called on every request to the servlet.
- * 
- * destroy	- Destroys the servlet.
- * 			- Typically called when the servlet container stops/restarts
- * 				- Most likely not called during normal operations
- * 				- usually only on shutdown and only once
- * 
- */
+public class LifeCycleServlet extends HttpServlet {
 
-public class LifecycleServlet extends HttpServlet {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("Inside doGet of Lifecycle Servlet");
-		resp.getWriter().write("<h1>Success</h1>");
+		trace()
+		super.doGet(req, resp);
 	}
 
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("LifecycleServlet is servicing a request");
+		// TODO Auto-generated method stub
 		super.service(req, resp);
 	}
 
 	@Override
 	public void destroy() {
-		System.out.println("LifecycleServlet is being destroyed");
+		// TODO Auto-generated method stub
 		super.destroy();
 	}
 
 	@Override
 	public void init() throws ServletException {
-		System.out.println("LifecycleServlet is being initialized");
+		// TODO Auto-generated method stub
 		super.init();
-		//throw new ServletException();
 	}
 
-	
-	
 }
