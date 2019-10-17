@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <!-- -->
+    <link rel="stylesheet" href="reimbursement.component.css" />
+
+    <!--  -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../image/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../image/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../image/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="../image/favicon/site.webmanifest" />
+
+    <title>Expense Reimbursement</title>
+  </head>
+  <body>
+    <!-- -->
+
+    <div class="card">
+      <h1 class="card-header">Reimbursement form</h1>
+      <div class="card-body">
+        <form>
+          <div class="form-group">
+            <label for="fname">First name:</label>
+            <input
+              class="form-control"
+              id="fname"
+              name="fname"
+              type="text"
+              required
+            />
+            <label for="lname">Last name:</label>
+            <input
+              class="form-control"
+              id="lname"
+              name="lname"
+              type="text"
+              required
+            />
+            <label for="date">Date:</label>
+            <input
+              class="form-control"
+              id="date"
+              name="date"
+              type="date"
+              required
+            />
+            <label for="time">Time:</label>
+            <input
+              class="form-control"
+              id="time"
+              name="time"
+              type="time"
+              required
+            />
+            <label for="location">Location:</label>
+            <input
+              class="form-control"
+              id="location"
+              name="location"
+              type="text"
+              required
+            />
+            <label for="description">Description:</label>
+            <textarea
+              class="form-control"
+              id="description"
+              rows="3"
+              required
+            ></textarea>
+            <label for="cost">Cost:</label>
+            <input
+              class="form-control"
+              id="cost"
+              name="cost"
+              type="number"
+              min="0"
+              step="0.01"
+              value="0"
+              required
+            />
+            <label for="grading-format">Grading format:</label>
+            <select class="form-control" id="grading-format" required>
+              <option>A-F</option>
+              <option>Pass-Fail</option>
+              <option>Audit</option>
+              <option>Other</option>
+            </select>
+            <input
+              class="form-control"
+              id="grading-format-other"
+              name="grading-format-other"
+              type="text"
+            />
+            <label for="event-type">Event type:</label>
+            <select class="form-control" id="event-type" required>
+              <option>University Course</option>
+              <option>Seminar</option>
+              <option>Certification Preparation Class</option>
+              <option>Certification</option>
+              <option>Technical Training</option>
+              <option>Other</option>
+            </select>
+            <input
+              class="form-control"
+              id="event-type-other"
+              name="event-type-other"
+              type="text"
+              required
+            />
+            <label for="work-related-justification"
+              >Work-related justification:</label
+            >
+            <textarea
+              class="form-control"
+              id="work-related-justification"
+              rows="3"
+              required
+            ></textarea>
+            <label for="file-attachments">Attachments:</label>
+            <input
+              class="form-control-file"
+              type="file"
+              id="file-attachments"
+              accept=".pdf,.png,.jpeg,.txt,.doc,.msg"
+              multiple
+            />
+            <h3>Projected reimbursement amount: <span> </span> </h3>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- -->
+
+    <!-- Optional JavaScript -->
+    <script src="reimbursement.component.js"></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

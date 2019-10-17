@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css?family=Arvo');
+
+*{
+    font-family: 'Arvo';
+}
+
+body{
+    background-image: url('http://www.picshunger.com/wp-content/uploads/2014/04/128.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.card{
+    margin: auto;
+    width: 400px;
+    height: 370px;
+    top: 100px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 #000000;
+    background-color: rgba(0,0,0,0.5) !important;
+    color: white;
+}
+
+.card-header{
+    text-align: center;
+}
+
+.login-form-group{
+
+}
+
+.btn.btn-primary{
+    
+}
