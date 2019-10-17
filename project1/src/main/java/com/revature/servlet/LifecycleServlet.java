@@ -17,25 +17,25 @@ public class LifeCycleServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		trace()
+		trace("LifeCycle doGet");
 		super.doGet(req, resp);
 	}
 
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		trace("LifeCycle service");
 		super.service(req, resp);
 	}
 
 	@Override
 	public void destroy() {
-		// TODO Auto-generated method stub
+		trace("This is KBEN signing off. Goodnight, radioland");
 		super.destroy();
 	}
 
 	@Override
 	public void init() throws ServletException {
-		// TODO Auto-generated method stub
+		trace("LifeCycle doGet");
 		super.init();
 	}
 
