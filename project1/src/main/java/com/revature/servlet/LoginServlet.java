@@ -1,7 +1,7 @@
 package com.revature.servlet;
 
 import java.io.IOException;
-import java.net.http.HttpResponse;
+//import java.net.http.HttpResponse;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -33,6 +33,7 @@ public class LoginServlet extends HttpServlet {
 		trace("login doPost");
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");	
+		
 	}
 
 }
