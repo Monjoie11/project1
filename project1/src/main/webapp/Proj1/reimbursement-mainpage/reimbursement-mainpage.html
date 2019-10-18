@@ -17,9 +17,7 @@
     />
 
     <!-- -->
-    <link rel="stylesheet" href="home.component.css" />
-
-    <!-- Add icon library -->
+    <link rel="stylesheet" href="reimbursement-mainpage.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -48,7 +46,7 @@
     <title>Hello, world!</title>
   </head>
   <body>
-    <!-- code begin -->
+    <!-- -->
 
     <!-- A grey horizontal navbar that becomes vertical on small screens -->
     <nav class="navbar navbar-expand-sm bg-light navbar-light fixed-top">
@@ -82,10 +80,37 @@
       </ul>
     </nav>
 
-    <!-- code end -->
+    <!-- Editable table -->
+    <div class="card" id="reimbursement-table">
+      <h3 class="card-header text-center font-weight-bold text-uppercase py-4">
+        Expense Reimbursements
+      </h3>
+      <div class="card-body">
+        <button type="button" class="btn btn-outline-primary">Primary</button>
+        <div id="table" class="table-editable">
+          <table
+            class="table table-bordered table-responsive-md table-striped text-center"
+          >
+            <thead>
+              <tr>
+                <th class="text-center">Reimbursement ID</th>
+                <th class="text-center">Type</th>
+                <th class="text-center">Status</th>
+                <th class="text-center">Total Amount</th>
+                <th class="text-center">Created Date</th>
+                <th class="text-center">Submitted Date</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </div>
+    </div>
+    <!-- Editable table -->
+
+    <!-- -->
 
     <!-- Optional JavaScript -->
-    <script src="home.component.js"></script>
+    <script src="index.component.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
