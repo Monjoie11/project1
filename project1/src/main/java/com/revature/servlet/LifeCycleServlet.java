@@ -18,24 +18,28 @@ public class LifeCycleServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		trace("LifeCycle doGet");
+		System.out.println("life get");
 		super.doGet(req, resp);
 	}
 
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		trace("LifeCycle service");
+		System.out.println("life service");
 		super.service(req, resp);
 	}
 
 	@Override
 	public void destroy() {
 		trace("This is KBEN signing off. Goodnight, radioland");
+		System.out.println("life destroy");
 		super.destroy();
 	}
 
 	@Override
 	public void init() throws ServletException {
 		trace("LifeCycle doGet");
+		System.out.println("life init");
 		super.init();
 	}
 

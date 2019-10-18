@@ -17,27 +17,27 @@
     />
 
     <!--  -->
-    <link rel="stylesheet" href="login.component.css">
+    <link rel="stylesheet" href="login/login.component.css">
 
     <!--  -->
     <link
       rel="apple-touch-icon"
       sizes="180x180"
-      href="../image/favicon/apple-touch-icon.png"
+      href="image/favicon/apple-touch-icon.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="../image/favicon/favicon-32x32.png"
+      href="image/favicon/favicon-32x32.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="../image/favicon/favicon-16x16.png"
+      href="image/favicon/favicon-16x16.png"
     />
-    <link rel="manifest" href="../image/favicon/site.webmanifest" />
+    <link rel="manifest" href="image/favicon/site.webmanifest" />
 
     <title>Login page</title>
   </head>
@@ -45,11 +45,11 @@
     <div class="card">
       <h1 class="card-header">Sign in</h1>
       <div class="card-body">
-        <form action = "login" method = "post">
+        <form action = "login" method = "POST">
           <div class="login-form-group">
             <label for="user-email">Email address:</label>
             <br>
-            <input type="email" class="login-form-control" id="user-email" />
+            <input type="email" class="login-form-control" id="user-email" name ="user-email"/>
           </div>
           <div class="login-form-group">
             <label for="user-password">Password:</label>
@@ -58,6 +58,7 @@
               type="password"
               class="login-form-control"
               id="user-password"
+              name ="user-password"
             />
           </div>
           <div class="login-form-group form-check">
@@ -77,7 +78,7 @@
     </div>
 
     <!-- Optional JavaScript -->
-    <script src="login.component.js"></script>
+    <script src="login/login.component.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
