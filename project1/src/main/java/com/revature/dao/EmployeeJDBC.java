@@ -14,7 +14,7 @@ public class EmployeeJDBC implements EmployeeDao {
 	
 	List<Employee> employeeRepository = new ArrayList<>();
 	
-	private Connection conn = ConnectionFactory.getConnection();
+	private static Connection conn = ConnectionFactory.getConnection();
 	
 	public void setConn(Connection conn) {
 		this.conn = conn;
