@@ -14,7 +14,7 @@ public class EmployeeImpl implements EmployeeService {
 		
 		Employee employee = employeeJDBC.getEmployee(email);
 		
-		if ((employee != null) && (employee.getPassword().equals(password))) {
+		if (((employee.getEmail() != null) && (employee.getPassword()!= null)) && (employee.getPassword().equals(password))) {
 			return employee;
 		}
 		
