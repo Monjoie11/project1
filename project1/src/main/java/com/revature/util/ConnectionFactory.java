@@ -7,65 +7,49 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
-
 public class ConnectionFactory {
 
-
-
 		private static String url;
-		
 		private static String user;
-		
 		private static String password;
-		
-		private static final String PROPERTIES_FILE = "src/main/resources/database.properties";
-		
-		private static ConnectionFactory cf;
+		private static final String PROPERTIES_FILE = "/database.properties";
+		private static ConnectionFactory cF;
 		
 		public static Connection getConnection() {
 			
-			if (cf == null) {
-				cf = new ConnectionFactory();
-			}
-			
-			return cf.createConnection();
-			
+			if (cF == null) {
+				cF = new ConnectionFactory(); 
+				}
+				return cF.createConnection();			
 		}
-		
-		
 		private ConnectionFactory() {
-			
 			Properties prop = new Properties();
-			
-			try (FileInputStream fis = new FileInputStream(PROPERTIES_FILE)) {
-				
-				prop.load(fis);
+			try{
+				prop.load(ConnectionFactory.class.getResourceAsStream(PROPERTIES_FILE));
 				url = prop.getProperty("url");
 				user = prop.getProperty("user");
 				password = prop.getProperty("password");
+			} catch(FileNotFoundException e) {
 				
-			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
+			}catch (IOException e) {
 				e.printStackTrace();
 			}
-			
 		}
 		
-		private Connection createConnection() {
+		Connection createConnection() {
 			Connection conn = null;
 			
 			try {
+				Class.forName("org.postgresql.Driver");
 				conn = DriverManager.getConnection(url, user, password);
+				
 			} catch (SQLException e) {
 				System.out.println("Failed to create connection");
 				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
-			
 			return conn;
-			
 		}
-		
 }
