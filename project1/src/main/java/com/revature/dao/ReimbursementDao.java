@@ -10,7 +10,7 @@ public interface ReimbursementDao {
 	
 	public Reimbursement getReimbursement(int reimbursementId);
 	
-	public void createReimbursement(Reimbursement reimbursement);
+	public boolean createReimbursement(Reimbursement reimbursement);
 	
 	public List<Reimbursement> getAllReimbursements();
 	

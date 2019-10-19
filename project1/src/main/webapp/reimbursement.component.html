@@ -47,7 +47,7 @@
     <div class="card">
       <h1 class="card-header">Reimbursement form</h1>
       <div class="card-body">
-        <form>
+        <form method="POST">
           <div class="form-group">
             <label for="fname">First name:</label>
             <input
@@ -93,6 +93,7 @@
             <textarea
               class="form-control"
               id="description"
+              name="description"
               rows="3"
               required
             ></textarea>
@@ -107,8 +108,19 @@
               value="0"
               required
             />
+            <label for="time-missed">Time Missed (in hours)</label>
+            <input
+              class="form-control"
+              id="time-missed"
+              name="time-missed"
+              type="number"
+              min="0"
+              step="1.0"
+              value="0"
+              required
+            />
             <label for="grading-format">Grading format:</label>
-            <select class="form-control" id="grading-format" required>
+            <select class="form-control" id="grading-format" name="grading-format" required>
               <option>A-F</option>
               <option>Pass-Fail</option>
               <option>Audit</option>
@@ -121,7 +133,7 @@
               type="text"
             />
             <label for="event-type">Event type:</label>
-            <select class="form-control" id="event-type" required>
+            <select class="form-control" id="event-type" name="event-type" required>
               <option>University Course</option>
               <option>Seminar</option>
               <option>Certification Preparation Class</option>
@@ -142,6 +154,7 @@
             <textarea
               class="form-control"
               id="work-related-justification"
+              name="work-related-justification"
               rows="3"
               required
             ></textarea>

@@ -23,21 +23,32 @@ public class Reimbursement {
 	
 	private String justification;
 	
-	private int timeMissed;
-	
 	private LocalDate dateSubmitted;
 	
+	private String email;
+	
+	private int timeMissed;
+	
+	
 	
 
-	public Reimbursement() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	
-
+	/**
+	 * @param reimbursementId
+	 * @param startDate
+	 * @param startTime
+	 * @param location
+	 * @param description
+	 * @param cost
+	 * @param gradingFormat
+	 * @param eventType
+	 * @param justification
+	 * @param dateSubmitted
+	 * @param email
+	 * @param timeMissed
+	 */
 	public Reimbursement(int reimbursementId, LocalDate startDate, LocalTime startTime, String location,
 			String description, double cost, String gradingFormat, String eventType, String justification,
-			int timeMissed, LocalDate dateSubmitted) {
+			LocalDate dateSubmitted, String email, int timeMissed) {
 		super();
 		this.reimbursementId = reimbursementId;
 		this.startDate = startDate;
@@ -48,9 +59,23 @@ public class Reimbursement {
 		this.gradingFormat = gradingFormat;
 		this.eventType = eventType;
 		this.justification = justification;
-		this.timeMissed = timeMissed;
 		this.dateSubmitted = dateSubmitted;
+		this.email = email;
+		this.timeMissed = timeMissed;
 	}
+
+
+
+
+
+
+	public Reimbursement() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+
+
 
 
 
@@ -61,6 +86,23 @@ public class Reimbursement {
 	public void setReimbursementId(int reimbursementId) {
 		this.reimbursementId = reimbursementId;
 	}
+
+
+	/**
+	 * @return the email
+	 */
+	public String getEmail() {
+		return email;
+	}
+
+
+	/**
+	 * @param email the email to set
+	 */
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 
 	public LocalDate getStartDate() {
 		return startDate;
@@ -227,6 +269,7 @@ public class Reimbursement {
 			return false;
 		return true;
 	}
+
 	
 	
 	
