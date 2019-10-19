@@ -24,11 +24,12 @@ public class EmployeeJDBC implements EmployeeDao {
 	public Employee getEmployee(String email) {
 		String sql = "select * from employee where email = ?";
 		
-		PreparedStatement stmt;
+		
 		
 		Employee employee = new Employee();
 		
 		try {
+			PreparedStatement stmt;
 			stmt = conn.prepareStatement(sql);
 			stmt.setString(1, email);
 			ResultSet rs = stmt.executeQuery();
