@@ -38,9 +38,10 @@ public class EmployeeJDBC implements EmployeeDao {
 				employee.setEmail(rs.getString(1));
 				employee.setFirstName(rs.getString(2));
 				employee.setLastName(rs.getString(3));
-				employee.setDepartment(Employee.Department.valueOf(rs.getString(4)));
-				employee.setPhone(rs.getString(5));
-				employee.setRole(Employee.Role.valueOf(rs.getString(6)));
+				employee.setPassword(rs.getString(4));
+				employee.setDepartment(Employee.Department.valueOf(rs.getString(5)));
+				employee.setPhone(rs.getString(6));
+				employee.setRole(Employee.Role.valueOf(rs.getString(7)));
 			}
 			
 		} catch (SQLException e) {
