@@ -25,7 +25,6 @@ public class LoginServlet extends HttpServlet {
 
 	public LoginServlet() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletRequest response) throws ServletException, IOException {
@@ -34,13 +33,13 @@ public class LoginServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		trace("login doPost");
-		//TODO note that html uses "user-email" and "user-password" while java uses employee
-		String email = request.getParameter("user-email");
-		String password = request.getParameter("user-password");
-		//TODO in html changer user-email and user-password to employee-email and employee-password
-		System.out.println("login post" + email + password );
-		employee = empImpl.loginEmployee(email, password);
+
+		String employeeEmail = request.getParameter("employee-email");
+		String employeePassword = request.getParameter("employee-password");
+
+		trace("doPost LoginServlet.java " + employeeEmail + " " + employeePassword);
+		
+		employee = empImpl.loginEmployee(employeeEmail, employeePassword);
 		if (employee != null) {
 			HttpSession session;
 			session = request.getSession(true);

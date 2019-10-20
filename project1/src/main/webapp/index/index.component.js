@@ -5,5 +5,5 @@
 // load();
 
 window.onload = function() {
-  window.location.href = "../login/login.component.html";
+  window.location.href = "login.component.html";
 };
