@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.revature.pojos.Employee;
 import com.revature.pojos.Reimbursement;
 import com.revature.service.ReimbursementImpl;
 
@@ -27,7 +28,7 @@ public class ReimbursementServlet extends HttpServlet{
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
+		Employee employee = (Employee) request.getSession().getAttribute("employee");
 		
 		reimbursement.setReimbursementId(0);
 		reimbursement.setStartDate(LocalDate.parse(request.getParameter("date")));
@@ -39,11 +40,12 @@ public class ReimbursementServlet extends HttpServlet{
 		reimbursement.setEventType(request.getParameter("event-type"));
 		reimbursement.setJustification(request.getParameter("work-related-justification"));
 		reimbursement.setDateSubmitted(LocalDate.parse(request.getParameter("date")));
-		reimbursement.setEmail(request.getParameter("email"));
+		reimbursement.setEmail(employee.getEmail());
 		reimbursement.setTimeMissed(Integer.parseInt(request.getParameter("time-missed")));
 
 		trace("doPost ReimbursementServlet.java");
 
+		
 		reimbursementImpl.addReimbursementRequest(reimbursement);
 		
 		

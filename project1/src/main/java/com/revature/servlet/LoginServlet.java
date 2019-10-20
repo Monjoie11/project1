@@ -44,7 +44,7 @@ public class LoginServlet extends HttpServlet {
 			HttpSession session;
 			session = request.getSession(true);
 			//request.getsession vs seession.setattribute
-			request.getSession().setAttribute("employee", employee.getEmail());
+			request.getSession().setAttribute("employee", employee);
 			response.sendRedirect("home.component.html");
 		} else {
 			response.getWriter().write("Sorry, but you were not able to login correctly :(");
