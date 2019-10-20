@@ -68,23 +68,22 @@ public class ReimbursementJDBC implements ReimbursementDao {
 	public boolean createReimbursement(Reimbursement reimbursement) {
 		
 		
-		String sql = "insert into reimbursement (reimbursement_id, date, time, location, description, cost, grading_format, event_type, "
-				+ "work_related_justification, date_submitted, email, work_hours_missed) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		String sql = "insert into reimbursement (date, time, location, description, cost, grading_format, event_type, "
+				+ "work_related_justification, date_submitted, email, work_hours_missed) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 		try {
 			PreparedStatement stmt = conn.prepareStatement(sql);
-			stmt.setInt(1, reimbursement.getReimbursementId());
-			stmt.setDate(2, Date.valueOf(reimbursement.getStartDate()));
-			stmt.setTime(3, Time.valueOf(reimbursement.getStartTime()));
-			stmt.setString(4, reimbursement.getLocation());
-			stmt.setString(5, reimbursement.getDescription());
-			stmt.setDouble(6, reimbursement.getCost());
-			stmt.setString(7, reimbursement.getGradingFormat());
-			stmt.setString(8, reimbursement.getEventType());
-			stmt.setString(9, reimbursement.getJustification());
-			stmt.setDate(10, Date.valueOf(reimbursement.getDateSubmitted()));
-			stmt.setString(11, reimbursement.getEmail());
-			stmt.setInt(12, reimbursement.getTimeMissed());
+			stmt.setDate(1, Date.valueOf(reimbursement.getStartDate()));
+			stmt.setTime(2, Time.valueOf(reimbursement.getStartTime()));
+			stmt.setString(3, reimbursement.getLocation());
+			stmt.setString(4, reimbursement.getDescription());
+			stmt.setDouble(5, reimbursement.getCost());
+			stmt.setString(6, reimbursement.getGradingFormat());
+			stmt.setString(7, reimbursement.getEventType());
+			stmt.setString(8, reimbursement.getJustification());
+			stmt.setDate(9, Date.valueOf(reimbursement.getDateSubmitted()));
+			stmt.setString(10, reimbursement.getEmail());
+			stmt.setInt(11, reimbursement.getTimeMissed());
 			stmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
