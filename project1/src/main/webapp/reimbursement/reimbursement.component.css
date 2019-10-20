@@ -1,7 +1,24 @@
-body{
-    background-image: url('http://www.allwhitebackground.com/images/2/2281.jpg');
-    background-size: cover;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
+@import url("https://fonts.googleapis.com/css?family=Arvo");
+
+* {
+  font-family: "Arvo";
+}
+
+body {
+  background-image: url("http://www.allwhitebackground.com/images/2/2281.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+.card {
+  margin: auto;
+  width: 470px;
+  height: auto;
+  top: 100px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0 #000000;
+  background-color: rgba(255, 255, 255, 0) !important;
+  color: black;
 }
 
