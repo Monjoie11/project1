@@ -66,8 +66,8 @@
     <div class="card">
       <h1 class="card-header">Reimbursement form</h1>
       <div class="card-body">
-        <form action="reimbursement" method="POST">
-          <div class="form-group">
+        <form action="reimbursement" method="POST" >
+          <div class="form-group" onchange="showProjectedReimbursementAmt()">
             <label for="fname">First name:</label>
             <input
               class="form-control"
@@ -200,9 +200,11 @@
                 >
               </div>
             </div>
-            <h3>Projected reimbursement amount: <span> </span></h3>
+            <h5>Projected reimbursement amount: <span id = "reimburse-amt"> </span></h5>
           </div>
+          <div class ="reimburse-submit-btn">
           <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
         </form>
       </div>
     </div>

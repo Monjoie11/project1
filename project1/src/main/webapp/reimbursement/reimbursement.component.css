@@ -23,6 +23,7 @@ body {
   color: black;
 }
 
-.btn.btn-primary {
-  margin-left: 33%;
+.reimburse-submit-btn {
+    display: flex; 
+    justify-content: center;
 }
