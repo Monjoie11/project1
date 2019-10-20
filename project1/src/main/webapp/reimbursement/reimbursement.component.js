@@ -27,5 +27,6 @@ function showProjectedReimbursementAmt() {
       break;
   }
 
-  document.getElementById("reimburse-amt").innerHTML = reimburseAmt;
+  reimburseAmt = reimburseAmt.toFixed(2);
+  document.getElementById("reimburse-amt").innerHTML = "$" + reimburseAmt;
 }
