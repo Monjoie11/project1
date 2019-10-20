@@ -68,11 +68,12 @@ public class ReimbursementJDBC implements ReimbursementDao {
 	public boolean createReimbursement(Reimbursement reimbursement) {
 		
 		
-		String sql = "insert into reimbursement (date, time, location, description, cost, grading_format, event_type, "
+		String sql = "insert into reimbursement (reimbursement_id, date, time, location, description, cost, grading_format, event_type, "
 				+ "work_related_justification, date_submitted, email, work_hours_missed) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 		try {
 			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setInt(1, reimbursement.getReimbursementId());
 			stmt.setDate(2, Date.valueOf(reimbursement.getStartDate()));
 			stmt.setTime(3, Time.valueOf(reimbursement.getStartTime()));
 			stmt.setString(4, reimbursement.getLocation());

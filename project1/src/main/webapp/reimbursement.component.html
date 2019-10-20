@@ -47,7 +47,7 @@
     <div class="card">
       <h1 class="card-header">Reimbursement form</h1>
       <div class="card-body">
-        <form method="POST">
+        <form action="reimbursement" method="POST">
           <div class="form-group">
             <label for="fname">First name:</label>
             <input
@@ -146,7 +146,6 @@
               id="event-type-other"
               name="event-type-other"
               type="text"
-              required
             />
             <label for="work-related-justification"
               >Work-related justification:</label
@@ -168,6 +167,7 @@
             />
             <h3>Projected reimbursement amount: <span> </span> </h3>
           </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
         </form>
       </div>
     </div>

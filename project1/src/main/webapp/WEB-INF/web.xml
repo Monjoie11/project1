@@ -38,4 +38,14 @@
     <servlet-name>HomepageServlet</servlet-name>
     <url-pattern>/home</url-pattern>
   </servlet-mapping>
+        <servlet>
+    <description></description>
+    <display-name>ReimbursementServlet</display-name>
+    <servlet-name>ReimbursementServlet</servlet-name>
+    <servlet-class>com.revature.servlet.ReimbursementServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReimbursementServlet</servlet-name>
+    <url-pattern>/reimbursement</url-pattern>
+  </servlet-mapping>
 </web-app>

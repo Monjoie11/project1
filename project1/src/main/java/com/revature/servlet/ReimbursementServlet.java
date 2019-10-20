@@ -13,10 +13,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.revature.pojos.Reimbursement;
+import com.revature.service.ReimbursementImpl;
 
 public class ReimbursementServlet extends HttpServlet{
 
 	Reimbursement reimbursement = new Reimbursement();
+	ReimbursementImpl reimbursementImpl = new ReimbursementImpl();
+	
 	
 	public ReimbursementServlet() {
 		super();
@@ -39,8 +42,11 @@ public class ReimbursementServlet extends HttpServlet{
 		reimbursement.setEmail(request.getParameter("email"));
 		reimbursement.setTimeMissed(Integer.parseInt(request.getParameter("time-missed")));
 
-
 		trace("doPost ReimbursementServlet.java");
+
+		reimbursementImpl.addReimbursementRequest(reimbursement);
+		
+		
 		
 		
 	}
