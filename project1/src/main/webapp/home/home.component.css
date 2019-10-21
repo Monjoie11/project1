@@ -6,7 +6,7 @@
 }
 
 body {
-    background-image: url("https://image.freepik.com/free-vector/white-3d-modern-background-design_53876-88246.jpg");
+    background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/6053c9f1-dd55-4e1e-8446-996958f63dd9/d1rwbhr-dbf444b2-2b4d-4e3a-997a-7d53f67f0c6a.jpg/v1/fill/w_1120,h_612,q_75,strp/rocks_in_the_sky_by_abstract_background_d1rwbhr-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjEyIiwicGF0aCI6IlwvZlwvNjA1M2M5ZjEtZGQ1NS00ZTFlLTg0NDYtOTk2OTU4ZjYzZGQ5XC9kMXJ3YmhyLWRiZjQ0NGIyLTJiNGQtNGUzYS05OTdhLTdkNTNmNjdmMGM2YS5qcGciLCJ3aWR0aCI6Ijw9MTEyMCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.Hc4GOcqNrG4ICFlKHtxULhvhTKPxYCZoEfgbE9pVRrU");
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -31,7 +31,6 @@ body {
 
   #msg-ops-btn{
     margin-bottom: 17%;
-    width: 100%;
   }
   
 .logout-btn {
