@@ -8,7 +8,7 @@ class Message {
     }
 }
 
-//let testMsg = new Message("testToWho", 0, "testFromWHom", "testMsg", "10/10/1000");
+let testMsg = new Message("testToWho", 0, "testFromWHom", "testMsg", "10/10/1000");
 
 function displayMessages(message) {
 
