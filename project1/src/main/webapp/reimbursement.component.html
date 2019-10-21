@@ -66,7 +66,7 @@
     <div class="card">
       <h1 class="card-header">Reimbursement form</h1>
       <div class="card-body">
-        <form action="reimbursement" method="POST" >
+        <form action="reimbursement" method="POST">
           <div class="form-group" onchange="showProjectedReimbursementAmt()">
             <label for="fname">First name:</label>
             <input
@@ -199,12 +199,18 @@
                   >Choose file</label
                 >
               </div>
+              <!-- <div class="input-group-append">
+                    <input class="btn btn-primary" type="reset" value="Reset">
+                    <span class="input-group-text" id="">Upload</span>
+                  </div> -->
             </div>
-            <h5>Projected reimbursement amount: <span id = "reimburse-amt"> </span></h5>
+            <h5>
+              Projected reimbursement amount: <span id="reimburse-amt"> </span>
+            </h5>
           </div>
-          <div class ="reimburse-submit-btn">
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </div>
+          <div class="reimburse-submit-btn">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
         </form>
       </div>
     </div>
@@ -213,13 +219,14 @@
     <script>
       $("#inputGroupFile02").on("change", function() {
         //get the file name
-        var fileName = $(this).val().replace('C:\\fakepath\\', " ");
+        var fileName = $(this)
+          .val()
+          .replace("C:\\fakepath\\", " ");
         //replace the "Choose a file" label
         $(this)
           .next(".custom-file-label")
           .html(fileName);
       });
     </script>
-
   </body>
 </html>

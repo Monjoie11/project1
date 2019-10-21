@@ -1,3 +1,44 @@
+@import url("https://fonts.googleapis.com/css?family=Arvo");
+
 * {
-    box-sizing: border-box;
+  font-family: "Arvo";
+  box-sizing: border-box;
+}
+
+body {
+    background-image: url("https://image.freepik.com/free-vector/white-3d-modern-background-design_53876-88246.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    padding-bottom: 10%;
+    padding-top: 10%;
+  }
+  
+  .card {
+    margin: auto;
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 #000000;
+    background-color: rgba(255, 255, 255, 0) !important;
+    color: black;
+    margin-bottom: 3%
+  }
+
+  #reimburse-del-btn{
+    margin-bottom: 17%;
+  }
+
+  #msg-ops-btn{
+    margin-bottom: 17%;
+    width: 100%;
+  }
+  
+.logout-btn {
+  display: flex;
+  justify-content: right;
+}
+
+.bs-select {
+  color: red;
 }
