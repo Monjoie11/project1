@@ -16,6 +16,25 @@
       crossorigin="anonymous"
     />
 
+    <!-- Optional JavaScript -->
+    <script src="reimbursement/reimbursement.component.js"></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+
     <!-- -->
     <link rel="stylesheet" href="reimbursement/reimbursement.component.css" />
 
@@ -48,7 +67,7 @@
       <h1 class="card-header">Reimbursement form</h1>
       <div class="card-body">
         <form action="reimbursement" method="POST">
-          <div class="form-group">
+          <div class="form-group" onchange="showProjectedReimbursementAmt()">
             <label for="fname">First name:</label>
             <input
               class="form-control"
@@ -120,7 +139,12 @@
               required
             />
             <label for="grading-format">Grading format:</label>
-            <select class="form-control" id="grading-format" name="grading-format" required>
+            <select
+              class="form-control"
+              id="grading-format"
+              name="grading-format"
+              required
+            >
               <option>A-F</option>
               <option>Pass-Fail</option>
               <option>Audit</option>
@@ -133,7 +157,12 @@
               type="text"
             />
             <label for="event-type">Event type:</label>
-            <select class="form-control" id="event-type" name="event-type" required>
+            <select
+              class="form-control"
+              id="event-type"
+              name="event-type"
+              required
+            >
               <option>University Course</option>
               <option>Seminar</option>
               <option>Certification Preparation Class</option>
@@ -157,40 +186,47 @@
               rows="3"
               required
             ></textarea>
-            <label for="file-attachments">Attachments:</label>
-            <input
-              class="form-control-file"
-              type="file"
-              id="file-attachments"
-              accept=".pdf,.png,.jpeg,.txt,.doc,.msg"
-              multiple
-            />
-            <h3>Projected reimbursement amount: <span> </span> </h3>
+
+            <div class="input-group mb-3">
+              <div class="custom-file">
+                <input
+                  type="file"
+                  class="custom-file-input"
+                  id="inputGroupFile02"
+                  accept=".pdf,.png,.jpeg,.txt,.doc,.msg"
+                />
+                <label class="custom-file-label" for="inputGroupFile02"
+                  >Choose file</label
+                >
+              </div>
+              <!-- <div class="input-group-append">
+                    <input class="btn btn-primary" type="reset" value="Reset">
+                    <span class="input-group-text" id="">Upload</span>
+                  </div> -->
+            </div>
+            <h5>
+              Projected reimbursement amount: <span id="reimburse-amt"> </span>
+            </h5>
           </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <div class="reimburse-submit-btn">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
         </form>
       </div>
     </div>
 
     <!-- -->
-
-    <!-- Optional JavaScript -->
-    <script src="reimbursement/reimbursement.component.js"></script>
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
+    <script>
+      $("#inputGroupFile02").on("change", function() {
+        //get the file name
+        var fileName = $(this)
+          .val()
+          .replace("C:\\fakepath\\", " ");
+        //replace the "Choose a file" label
+        $(this)
+          .next(".custom-file-label")
+          .html(fileName);
+      });
+    </script>
   </body>
 </html>
