@@ -14,7 +14,9 @@ public interface ReimbursementDao {
 	
 	public List<Reimbursement> getAllReimbursements();
 	
-	public void updateReimbursement(Reimbursement reimbursement);
+	public List<Reimbursement> getEmployeeReimbursement(String email);
+	
+	public void updateReimbursementStatus(int reimbursementId, Reimbursement.Status newStatus);
 	
 	public void deleteReimbursement(Reimbursement reimbursement);
 

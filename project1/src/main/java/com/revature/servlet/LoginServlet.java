@@ -2,6 +2,7 @@ package com.revature.servlet;
 
 import java.io.IOException;
 //import java.net.http.HttpResponse;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -11,12 +12,14 @@ import javax.servlet.http.HttpSession;
 
 import com.revature.pojos.Employee;
 import com.revature.service.EmployeeImpl;
+import com.revature.service.MessageImpl;
 
 import static com.revature.util.LoggerUtil.*;
 
 public class LoginServlet extends HttpServlet {
 	Employee employee = new Employee();
 	EmployeeImpl empImpl = new EmployeeImpl();
+	MessageImpl messageImpl = new MessageImpl();
 
 	/**
 	 * 
@@ -28,6 +31,8 @@ public class LoginServlet extends HttpServlet {
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletRequest response) throws ServletException, IOException {
+
+		
 		trace("login doGet");
 
 	}
@@ -45,13 +50,32 @@ public class LoginServlet extends HttpServlet {
 			session = request.getSession(true);
 			//request.getsession vs seession.setattribute
 			request.getSession().setAttribute("employee", employee);
-			response.sendRedirect("home.component.html");
+			Employee.Role role = employee.getRole();
+			switch(role) {
+			case EMPLOYEE: response.sendRedirect("home.employee.html"); 
+			break;
+			case DEPTHEAD: response.sendRedirect("home.depart.html");
+					
+			break;
+			case SUPERVISOR: response.sendRedirect("home.direct.html");
+			break;
+			case BENCO: response.sendRedirect("home.benco.html");
+			break;
+			default: session.invalidate(); 
+				response.sendRedirect("login.component.html");
+				break;
+			
+			}
+			
+			
 		} else {
 			response.getWriter().write("Sorry, but you were not able to login correctly :(");
 		}
 	}
-
+	
 }
+
+
 
 
 

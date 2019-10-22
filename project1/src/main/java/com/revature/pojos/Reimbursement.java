@@ -4,51 +4,38 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class Reimbursement {
-	
-	private int reimbursementId;
-	
-	private LocalDate startDate;
-	
-	private LocalTime startTime;
-	
-	private String location;
-	
-	private String description;
-	
-	private double cost;
-	
-	private String gradingFormat;
-	
-	private String eventType;
-	
-	private String justification;
-	
-	private LocalDate dateSubmitted;
-	
-	private String email;
-	
-	private int timeMissed;
-	
-	
-	
 
-	/**
-	 * @param reimbursementId
-	 * @param startDate
-	 * @param startTime
-	 * @param location
-	 * @param description
-	 * @param cost
-	 * @param gradingFormat
-	 * @param eventType
-	 * @param justification
-	 * @param dateSubmitted
-	 * @param email
-	 * @param timeMissed
-	 */
+	private int reimbursementId;
+
+	private LocalDate startDate;
+
+	private LocalTime startTime;
+
+	private String location;
+
+	private String description;
+
+	private double cost;
+
+	private String gradingFormat;
+
+	private String eventType;
+
+	private String justification;
+
+	private LocalDate dateSubmitted;
+
+	private String email;
+
+	private int timeMissed;
+
+	private Status status;
+
+	private double totalAmount;
+
 	public Reimbursement(int reimbursementId, LocalDate startDate, LocalTime startTime, String location,
 			String description, double cost, String gradingFormat, String eventType, String justification,
-			LocalDate dateSubmitted, String email, int timeMissed) {
+			LocalDate dateSubmitted, String email, int timeMissed, Status status, double totalAmount) {
 		super();
 		this.reimbursementId = reimbursementId;
 		this.startDate = startDate;
@@ -62,22 +49,14 @@ public class Reimbursement {
 		this.dateSubmitted = dateSubmitted;
 		this.email = email;
 		this.timeMissed = timeMissed;
+		this.status = status;
+		this.totalAmount = totalAmount;
 	}
-
-
-
-
-
 
 	public Reimbursement() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
-
-
-
-
 
 	public int getReimbursementId() {
 		return reimbursementId;
@@ -86,23 +65,6 @@ public class Reimbursement {
 	public void setReimbursementId(int reimbursementId) {
 		this.reimbursementId = reimbursementId;
 	}
-
-
-	/**
-	 * @return the email
-	 */
-	public String getEmail() {
-		return email;
-	}
-
-
-	/**
-	 * @param email the email to set
-	 */
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
 
 	public LocalDate getStartDate() {
 		return startDate;
@@ -168,14 +130,6 @@ public class Reimbursement {
 		this.justification = justification;
 	}
 
-	public int getTimeMissed() {
-		return timeMissed;
-	}
-
-	public void setTimeMissed(int timeMissed) {
-		this.timeMissed = timeMissed;
-	}
-
 	public LocalDate getDateSubmitted() {
 		return dateSubmitted;
 	}
@@ -184,12 +138,36 @@ public class Reimbursement {
 		this.dateSubmitted = dateSubmitted;
 	}
 
-	@Override
-	public String toString() {
-		return "Reimbursement [reimbursementId=" + reimbursementId + ", startDate=" + startDate + ", startTime="
-				+ startTime + ", location=" + location + ", description=" + description + ", cost=" + cost
-				+ ", gradingFormat=" + gradingFormat + ", eventType=" + eventType + ", justification=" + justification
-				+ ", timeMissed=" + timeMissed + ", dateSubmitted=" + dateSubmitted + "]";
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public int getTimeMissed() {
+		return timeMissed;
+	}
+
+	public void setTimeMissed(int timeMissed) {
+		this.timeMissed = timeMissed;
+	}
+
+	public Status getStatus() {
+		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
+	}
+
+	public double getTotalAmount() {
+		return totalAmount;
+	}
+
+	public void setTotalAmount(double totalAmount) {
+		this.totalAmount = totalAmount;
 	}
 
 	@Override
@@ -201,6 +179,7 @@ public class Reimbursement {
 		result = prime * result + (int) (temp ^ (temp >>> 32));
 		result = prime * result + ((dateSubmitted == null) ? 0 : dateSubmitted.hashCode());
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
+		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((eventType == null) ? 0 : eventType.hashCode());
 		result = prime * result + ((gradingFormat == null) ? 0 : gradingFormat.hashCode());
 		result = prime * result + ((justification == null) ? 0 : justification.hashCode());
@@ -208,7 +187,10 @@ public class Reimbursement {
 		result = prime * result + reimbursementId;
 		result = prime * result + ((startDate == null) ? 0 : startDate.hashCode());
 		result = prime * result + ((startTime == null) ? 0 : startTime.hashCode());
+		result = prime * result + ((status == null) ? 0 : status.hashCode());
 		result = prime * result + timeMissed;
+		temp = Double.doubleToLongBits(totalAmount);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
 		return result;
 	}
 
@@ -232,6 +214,11 @@ public class Reimbursement {
 			if (other.description != null)
 				return false;
 		} else if (!description.equals(other.description))
+			return false;
+		if (email == null) {
+			if (other.email != null)
+				return false;
+		} else if (!email.equals(other.email))
 			return false;
 		if (eventType == null) {
 			if (other.eventType != null)
@@ -265,13 +252,26 @@ public class Reimbursement {
 				return false;
 		} else if (!startTime.equals(other.startTime))
 			return false;
+		if (status != other.status)
+			return false;
 		if (timeMissed != other.timeMissed)
+			return false;
+		if (Double.doubleToLongBits(totalAmount) != Double.doubleToLongBits(other.totalAmount))
 			return false;
 		return true;
 	}
 
-	
-	
-	
-	
+	@Override
+	public String toString() {
+		return "Reimbursement [reimbursementId=" + reimbursementId + ", startDate=" + startDate + ", startTime="
+				+ startTime + ", location=" + location + ", description=" + description + ", cost=" + cost
+				+ ", gradingFormat=" + gradingFormat + ", eventType=" + eventType + ", justification=" + justification
+				+ ", dateSubmitted=" + dateSubmitted + ", email=" + email + ", timeMissed=" + timeMissed + ", status="
+				+ status + ", totalAmount=" + totalAmount + "]";
+	}
+
+	public enum Status {
+		NEEDSUPAPPROV, NEEDHEADAPPROV, NEEDBENCOAPROV, DENIED, MODIFIED, MOREINFO, ACCEPTED
+	}
+
 }
