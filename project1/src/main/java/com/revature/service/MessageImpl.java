@@ -1,5 +1,7 @@
 package com.revature.service;
 
+import java.util.List;
+
 import com.revature.dao.MessageJDBC;
 import com.revature.pojos.Message;
 
@@ -12,6 +14,12 @@ public class MessageImpl implements MessageService {
 		messageJDBC.createMessage(message);
 		
 		return true;
+	}
+
+	@Override
+	public List<Message> getMessagesByUser(String email) {
+		
+		return messageJDBC.getAllMessages(email);
 	}
 
 }

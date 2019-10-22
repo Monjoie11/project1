@@ -10,7 +10,7 @@ public interface MessageDao {
 	
 	public boolean createMessage(Message message);
 	
-	public List<Message> getAllMessages();
+	public List<Message> getAllMessages(String email);
 	
 	public void updateMessage(Message message);
 	

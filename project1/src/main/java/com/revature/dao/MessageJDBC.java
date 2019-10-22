@@ -83,10 +83,38 @@ public class MessageJDBC implements MessageDao {
 	}
 
 	@Override
-	public List<Message> getAllMessages() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Message> getAllMessages(String email) {
+
+		
+		String sql = "select * from message where target_email = ?";
+		 
+		PreparedStatement stmt;
+		
+		try {
+			stmt = conn.prepareStatement(sql);
+			stmt.setString(1, email);
+			ResultSet rs = stmt.executeQuery();
+
+			while (rs.next()) {
+				Message message = new Message();
+				message.setMessageId(rs.getInt(1));
+				message.setOriginEmail(rs.getString(2));
+				message.setTargetEmail(rs.getString(3));
+				message.setStatus(Message.Status.valueOf(rs.getString(4)));
+				message.setContent(rs.getString(5));
+				message.setDateCreated(rs.getDate(6).toLocalDate());
+			//	trace("get cars by user while block");
+				messageRepository.add(message);
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return messageRepository;
 	}
+	
 
 	@Override
 	public void updateMessage(Message message) {
