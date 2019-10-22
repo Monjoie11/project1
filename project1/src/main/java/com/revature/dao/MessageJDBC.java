@@ -1,6 +1,7 @@
 package com.revature.dao;
 
 import static com.revature.util.LoggerUtil.error;
+import static com.revature.util.LoggerUtil.trace;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -117,10 +118,23 @@ public class MessageJDBC implements MessageDao {
 	
 
 	@Override
-	public void updateMessage(Message message) {
-		// TODO Auto-generated method stub
-
+	public void updateMessage(Message message, String newStatus) {
+		
+String sql = "update message set status = ? where message_id = ?";
+		
+		try {
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setString(1, newStatus);
+			stmt.setInt(2, message.getMessageId());
+			stmt.executeUpdate();
+			trace("executing message status");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
+	
 
 	@Override
 	public void deleteMessage(Message message) {

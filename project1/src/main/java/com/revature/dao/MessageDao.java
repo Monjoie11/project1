@@ -12,7 +12,7 @@ public interface MessageDao {
 	
 	public List<Message> getAllMessages(String email);
 	
-	public void updateMessage(Message message);
+	public void updateMessage(Message message, String newStatus);
 	
 	public void deleteMessage(Message message);
 	

@@ -139,10 +139,25 @@ public class ReimbursementJDBC implements ReimbursementDao {
 	}
 
 	@Override
-	public void updateReimbursement(Reimbursement reimbursement) {
-		// TODO Auto-generated method stub
-
+	public void updateReimbursementStatus(int reimbursementId, String newStatus) {
+		
+	String sql = "update reimbursement set status = ? where reimbursement_id = ?";
+		
+		try {
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setString(1, newStatus);
+			stmt.setInt(2, reimbursementId);
+			stmt.executeUpdate();
+			trace("executing reimbursement status ");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
+	
+
+
 
 	@Override
 	public void deleteReimbursement(Reimbursement reimbursement) {
