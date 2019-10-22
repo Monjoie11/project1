@@ -33,10 +33,10 @@ public class MessageServlet extends HttpServlet {
 
 		message.setMessageId(0);
 		message.setOriginEmail(employee.getEmail());
-		message.setTargetEmail(request.getParameter("we neeed to name this field"));
-		message.setStatus(Message.Status.valueOf(request.getParameter("we neeed to name this field")));
-		message.setContent(request.getParameter("we neeed to name this field"));
-		message.setDateCreated(LocalDate.parse(request.getParameter("we neeed to name this field")));
+		message.setTargetEmail(request.getParameter("sendTo"));
+	//	message.setStatus(Message.Status.valueOf(request.getParameter("we neeed to name this field")));
+		message.setContent(request.getParameter("msgContent"));
+	//	message.setDateCreated(LocalDate.parse(request.getParameter("we neeed to name this field")));
 
 		trace("doPost ReimbursementServlet.java");
 		
