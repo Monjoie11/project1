@@ -11,6 +11,6 @@ public interface ReimbursementService {
 	
 	public List<Reimbursement> getReimbursmentList(Employee employee);
 	
-	public boolean updateReimbursementStatus(int reimbursmentId, Reimbursement.Status newStatus, Employee.Role role);
+	public boolean updateReimbursementStatus(int reimbursmentId, Employee.Role role, String inputAction);
 	
 }

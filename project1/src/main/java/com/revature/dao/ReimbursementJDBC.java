@@ -139,13 +139,13 @@ public class ReimbursementJDBC implements ReimbursementDao {
 	}
 
 	@Override
-	public void updateReimbursementStatus(int reimbursementId, String newStatus) {
+	public void updateReimbursementStatus(int reimbursementId, Reimbursement.Status newStatus) {
 		
 	String sql = "update reimbursement set status = ? where reimbursement_id = ?";
 		
 		try {
 			PreparedStatement stmt = conn.prepareStatement(sql);
-			stmt.setString(1, newStatus);
+			stmt.setString(1, newStatus.toString());
 			stmt.setInt(2, reimbursementId);
 			stmt.executeUpdate();
 			trace("executing reimbursement status ");
