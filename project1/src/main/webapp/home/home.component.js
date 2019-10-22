@@ -61,19 +61,26 @@ class Reimbursement {
     }
 }
 
-function displayReimbursements(reimbursement) {
+function displayReimbursements(reimbursements) {
 
     let table = document.getElementById("dtBasicExampleReimburse");
     //let row = table.rows[0]
     //let numberOfColumns = row.cells.length; 
 
-    let newRow = table.insertRow(1); // inserting a new row to the table as the first row
 
-    newRow.insertCell(0).innerHTML = reimbursement.reimbursementId
-    newRow.insertCell(1).innerHTML = reimbursement.eventType
-    newRow.insertCell(2).innerHTML = reimbursement.status
-    newRow.insertCell(3).innerHTML = reimbursement.totalAmount //reimbursed amt calculated based on event type and cost
-    newRow.insertCell(4).innerHTML = reimbursement.dateSubmitted
+    for ( reimbursement of reimbursements){
+
+        let newRow = table.insertRow(1); // inserting a new row to the table as the first row
+
+        newRow.insertCell(0).innerHTML = reimbursement.reimbursementId
+        newRow.insertCell(1).innerHTML = reimbursement.eventType
+        newRow.insertCell(2).innerHTML = reimbursement.status
+        newRow.insertCell(3).innerHTML = reimbursement.totalAmount //reimbursed amt calculated based on event type and cost
+        newRow.insertCell(4).innerHTML = reimbursement.dateSubmitted
+
+    }
+
+  
 
 }
 
@@ -84,7 +91,7 @@ function getAllReimbursements() {
             if (xhr.status === 200) {
                 displayReimbursements(JSON.parse(xhr.responseText));
             } else {
-                window.alert("Failed to retireve reimbursement :(");
+                window.alert("Failed to retireve reimbursements :(");
             }
         } else {
             window.alert("Fetching Request");
