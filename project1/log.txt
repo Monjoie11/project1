@@ -18,3 +18,10 @@
 2019-10-23 10:10:19 TRACE root:30 - executing message status
 2019-10-23 10:15:32 TRACE root:30 - jdbc:postgresql://benefits.chpjdv8jgvym.us-east-1.rds.amazonaws.com:5432/postgres? postgres benefits
 2019-10-23 10:15:36 TRACE root:30 - executing message status
+2019-10-23 10:32:53 TRACE root:30 - jdbc:postgresql://benefits.chpjdv8jgvym.us-east-1.rds.amazonaws.com:5432/postgres? postgres benefits
+2019-10-23 10:33:36 TRACE root:30 - jdbc:postgresql://benefits.chpjdv8jgvym.us-east-1.rds.amazonaws.com:5432/postgres? postgres benefits
+2019-10-23 10:33:37 TRACE root:30 - get emp jdbcEmployee [email=depthead@email.com, password=test, firstName=deptfirst, lastName=deptlast, phone=1234567890, role=DEPTHEAD, department=SALES]
+2019-10-23 10:36:48 TRACE root:30 - jdbc:postgresql://benefits.chpjdv8jgvym.us-east-1.rds.amazonaws.com:5432/postgres? postgres benefits
+2019-10-23 10:37:28 TRACE root:30 - jdbc:postgresql://benefits.chpjdv8jgvym.us-east-1.rds.amazonaws.com:5432/postgres? postgres benefits
+2019-10-23 10:39:34 TRACE root:30 - jdbc:postgresql://benefits.chpjdv8jgvym.us-east-1.rds.amazonaws.com:5432/postgres? postgres benefits
+2019-10-23 10:39:36 TRACE root:30 - get emp jdbcEmployee [email=null, password=null, firstName=null, lastName=null, phone=null, role=null, department=null]
