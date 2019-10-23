@@ -1,0 +1,20 @@
+2019-10-23 09:17:34 TRACE root:30 - jdbc:postgresql://benefits.chpjdv8jgvym.us-east-1.rds.amazonaws.com:5432/postgres? postgres benefits
+2019-10-23 09:17:37 ERROR root:14 - SQL error in createReimburse
+2019-10-23 09:22:03 TRACE root:30 - jdbc:postgresql://benefits.chpjdv8jgvym.us-east-1.rds.amazonaws.com:5432/postgres? postgres benefits
+2019-10-23 09:24:46 TRACE root:30 - jdbc:postgresql://benefits.chpjdv8jgvym.us-east-1.rds.amazonaws.com:5432/postgres? postgres benefits
+2019-10-23 09:26:46 TRACE root:30 - jdbc:postgresql://benefits.chpjdv8jgvym.us-east-1.rds.amazonaws.com:5432/postgres? postgres benefits
+2019-10-23 09:30:23 TRACE root:30 - jdbc:postgresql://benefits.chpjdv8jgvym.us-east-1.rds.amazonaws.com:5432/postgres? postgres benefits
+2019-10-23 09:30:57 TRACE root:30 - jdbc:postgresql://benefits.chpjdv8jgvym.us-east-1.rds.amazonaws.com:5432/postgres? postgres benefits
+2019-10-23 09:37:59 TRACE root:30 - jdbc:postgresql://benefits.chpjdv8jgvym.us-east-1.rds.amazonaws.com:5432/postgres? postgres benefits
+2019-10-23 09:47:03 TRACE root:30 - jdbc:postgresql://benefits.chpjdv8jgvym.us-east-1.rds.amazonaws.com:5432/postgres? postgres benefits
+2019-10-23 09:49:12 TRACE root:30 - jdbc:postgresql://benefits.chpjdv8jgvym.us-east-1.rds.amazonaws.com:5432/postgres? postgres benefits
+2019-10-23 09:55:00 TRACE root:30 - jdbc:postgresql://benefits.chpjdv8jgvym.us-east-1.rds.amazonaws.com:5432/postgres? postgres benefits
+2019-10-23 09:55:33 TRACE root:30 - jdbc:postgresql://benefits.chpjdv8jgvym.us-east-1.rds.amazonaws.com:5432/postgres? postgres benefits
+2019-10-23 09:57:53 TRACE root:30 - jdbc:postgresql://benefits.chpjdv8jgvym.us-east-1.rds.amazonaws.com:5432/postgres? postgres benefits
+2019-10-23 10:01:28 TRACE root:30 - jdbc:postgresql://benefits.chpjdv8jgvym.us-east-1.rds.amazonaws.com:5432/postgres? postgres benefits
+2019-10-23 10:01:45 TRACE root:30 - jdbc:postgresql://benefits.chpjdv8jgvym.us-east-1.rds.amazonaws.com:5432/postgres? postgres benefits
+2019-10-23 10:06:33 TRACE root:30 - jdbc:postgresql://benefits.chpjdv8jgvym.us-east-1.rds.amazonaws.com:5432/postgres? postgres benefits
+2019-10-23 10:10:16 TRACE root:30 - jdbc:postgresql://benefits.chpjdv8jgvym.us-east-1.rds.amazonaws.com:5432/postgres? postgres benefits
+2019-10-23 10:10:19 TRACE root:30 - executing message status
+2019-10-23 10:15:32 TRACE root:30 - jdbc:postgresql://benefits.chpjdv8jgvym.us-east-1.rds.amazonaws.com:5432/postgres? postgres benefits
+2019-10-23 10:15:36 TRACE root:30 - executing message status
