@@ -22,9 +22,18 @@ $(document).ready(function() {
         .removeClass("selected");
     }
 
-    enableReimbursementBtn();
+    enableMsgBtn();
   });
 });
+
+function enableMsgBtn(){
+  if (document.getElementsByClassName("selected").length != 0) {
+    // exists
+    document.getElementById("msg-ops-btn-del").disabled = false;
+  } else {
+    document.getElementById("msg-ops-btn-del").disabled = true;
+  }
+}
 
 function enableReimbursementBtn() {
   if (document.getElementsByClassName("selected").length != 0) {
@@ -35,10 +44,17 @@ function enableReimbursementBtn() {
   }
 }
 
-function deleteMyRecord() {
+function deleteMyRecord() { // for reimbursement
   let row = document.getElementsByClassName("selected")[0]
   row.parentNode.removeChild(row);
   deleteRecord("reimbursementID="+row.cells[0].innerHTML)
+  
+}
+
+function deleteMyMsg() {
+  let row = document.getElementsByClassName("selected")[0]
+  row.parentNode.removeChild(row);
+  deleteMsg("msgID="+row.cells[0].innerHTML)
   
 }
 
@@ -192,9 +208,16 @@ function getAllReimbursements() {
   xhr.send();
 }
 
-function deleteRecord(msg) {
+function deleteRecord(reimburse) {
   let xhr = new XMLHttpRequest();
 
   xhr.open("DELETE", "reimbursement", true);
+  xhr.send(reimburse);
+}
+
+function deleteMsg(msg) {
+  let xhr = new XMLHttpRequest();
+
+  xhr.open("DELETE", "message", true);
   xhr.send(msg);
 }
