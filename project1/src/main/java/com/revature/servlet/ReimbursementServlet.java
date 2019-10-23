@@ -68,6 +68,9 @@ public class ReimbursementServlet extends HttpServlet{
 		
 		
 		List<Reimbursement> reimbursementList = reimbursementImpl.getReimbursmentList(employee);
+		trace(reimbursementList.toString());
+		response.setContentType("text/plain");
+		response.getWriter().write(om.writeValueAsString(reimbursementList));
 	}
 	
 	

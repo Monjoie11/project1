@@ -34,6 +34,10 @@ public class MessageServlet extends HttpServlet {
 		
 		Employee employee = (Employee) request.getSession().getAttribute("employee");
 		
+		
+		messageList = messageImpl.getMessagesByUser(employee.getEmail());
+		trace(messageList.toString());
+		response.setContentType("text/plain");
 		response.getWriter().write(om.writeValueAsString(messageList));
 		
 	}

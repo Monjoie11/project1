@@ -30,19 +30,20 @@ class Message {
 
 //let testMsg = new Message("testToWho", 0, "testFromWHom", "testMsg", "10/10/1000");
 
-function displayMessages(message) {
+function displayMessages(messages) {
 
     let table = document.getElementById("dtBasicExampleMessage");
     //let row = table.rows[0]
     //let numberOfColumns = row.cells.length; 
 
+    for (message of messages){
     let newRow = table.insertRow(1); // inserting a new row to the table as the first row
 
-    newRow.insertCell(0).innerHTML = message.msgID
-    newRow.insertCell(1).innerHTML = message.fromWho
-    newRow.insertCell(2).innerHTML = message.msgContent
-    newRow.insertCell(3).innerHTML = message.dateCreated
-
+    newRow.insertCell(0).innerHTML = message.messageId;
+    newRow.insertCell(1).innerHTML = message.originEmail;
+    newRow.insertCell(2).innerHTML = message.content;
+    newRow.insertCell(3).innerHTML = message.dateCreated.month + "/" + message.dateCreated.dayOfMonth + "/" +message.dateCreated.year;
+    }
 }
 
 function getAllMessages() {

@@ -44,7 +44,7 @@ public class LoginServlet extends HttpServlet {
 			session = request.getSession(true);
 			trace("logged in now redirecting");
 			// request.getsession vs seession.setattribute
-			request.getSession().setAttribute("employee", employee);
+			session.setAttribute("employee", employee); // html name tag
 			Employee.Role role = employee.getRole();
 			switch (role) {
 
