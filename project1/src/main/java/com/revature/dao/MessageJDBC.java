@@ -22,7 +22,7 @@ public class MessageJDBC implements MessageDao {
 	
 	List<Message> messageRepository = new ArrayList<>();
 	
-	private static Connection conn = ConnectionFactory.getConnection();
+	private Connection conn = ConnectionFactory.getConnection();
 	
 	public void setConn(Connection conn) {
 		this.conn = conn;
@@ -30,8 +30,8 @@ public class MessageJDBC implements MessageDao {
 
 	@Override
 	public Message getMessage(int messageId) {
-		String sql = "select * from reimbursement"
-				+ " where reimbursement_id = ?";
+		String sql = "select * from message"
+				+ " where message_id = ?";
 		
 		PreparedStatement stmt;
 		
@@ -62,7 +62,7 @@ public class MessageJDBC implements MessageDao {
 	public boolean createMessage(Message message) {
 		
 
-		String sql = "insert into reimbursement (origin_email, target_email, status, content, date_created) values(?, ?, ?, ?, ?)";
+		String sql = "insert into message(origin_email, target_email, status, content, date_created) values(?, ?, ?, ?, ?)";
 
 		try {
 			PreparedStatement stmt = conn.prepareStatement(sql);
