@@ -5,6 +5,7 @@ import static com.revature.util.LoggerUtil.trace;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -12,7 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.pojos.Employee;
+import com.revature.pojos.Message;
 import com.revature.pojos.Reimbursement;
 import com.revature.service.ReimbursementImpl;
 
@@ -56,9 +59,18 @@ public class ReimbursementServlet extends HttpServlet{
 	}
 
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		super.doPut(req, resp);
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		trace("doGet reimbursementServlet");
+		ObjectMapper om = new ObjectMapper();
+		
+		Employee employee = (Employee) request.getSession().getAttribute("employee");
+		
+		
+		List<Reimbursement> reimbursementList = reimbursementImpl.getReimbursmentList(employee);
+		trace(reimbursementList.toString());
+		response.setContentType("text/plain");
+		response.getWriter().write(om.writeValueAsString(reimbursementList));
 	}
 	
 	

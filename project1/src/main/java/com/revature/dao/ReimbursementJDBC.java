@@ -1,22 +1,19 @@
 package com.revature.dao;
 
+import static com.revature.util.LoggerUtil.error;
+import static com.revature.util.LoggerUtil.trace;
+
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Time;
-import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.revature.pojos.Employee;
-import com.revature.pojos.Message;
 import com.revature.pojos.Reimbursement;
 import com.revature.util.ConnectionFactory;
-
-import static com.revature.util.LoggerUtil.*;
 
 public class ReimbursementJDBC implements ReimbursementDao {
 
@@ -59,7 +56,7 @@ public class ReimbursementJDBC implements ReimbursementDao {
 			}
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			error("reimbursementJDBC SQL getReimbursement");
 			e.printStackTrace();
 		}
 
@@ -101,7 +98,7 @@ public class ReimbursementJDBC implements ReimbursementDao {
 	@Override
 	public List<Reimbursement> getAllReimbursements() {
 
-		String sql = "select * from reimbursment";
+		String sql = "select * from reimbursement";
 
 		PreparedStatement stmt;
 
@@ -168,7 +165,7 @@ public class ReimbursementJDBC implements ReimbursementDao {
 	@Override
 	public List<Reimbursement> getEmployeeReimbursement(String email) {
 
-		String sql = "select * from reimbursment where email = ?";
+		String sql = "select * from reimbursement where email = ?";
 
 		PreparedStatement stmt;
 
