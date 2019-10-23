@@ -1,12 +1,10 @@
 $(document).ready(function() {
     $("#dtBasicExampleReimburse tr").click(function(){
-        $(this).addClass('selected').siblings().removeClass('selected');    
-        var value=$(this).find('td:first').html();
-        alert(value);    
+        $(this).addClass('selected').siblings().removeClass('selected');       
      });
      
-     $('.ok').on('click', function(e){
-         alert($("#dtBasicExampleReimburse tr.selected td:first").html());
+     $("#dtBasicExampleMessage tr").click(function(){
+        $(this).addClass('selected').siblings().removeClass('selected');       
      });
 });
 
