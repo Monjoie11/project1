@@ -1,21 +1,30 @@
-class Reimbursement {
-    constructor (reimbursementId, startDate, startTime, location,
-        description, cost, gradingFormat, eventType, justification,
-        dateSubmitted, email, timeMissed){
-        this.reimbursementId = reimbursementId;
-        this.startDate = startDate;
-        this.startTime = startTime;
-        this.location = location;
-        this.description = description;
-        this.cost = cost;
-        this.gradingFormat = gradingFormat;
-        this.eventType = eventType;
-        this.justification = justification;
-        this.dateSubmitted = dateSubmitted;
-        this.email = email;
-        this.timeMissed = timeMissed;
+/* my functions */
+
+function getAllMessagesAndReimbursements(){
+    getAllMessages();
+    getAllReimbursements();
+}
+
+function DeleteRows(table_id) { // delete table rows except the header
+    let rowCount = table_id.rows.length;
+    for (let i = rowCount - 1; i > 0; i--) {
+        table_id.deleteRow(i);
     }
 }
+
+function insertRequiredField(){
+
+    if(document.getElementById('rejected').selected) {
+        document.getElementById("formSalaryEdit").required = true;
+    } else {
+        document.getElementById("formSalaryEdit").required = false;
+    }
+
+}
+
+
+
+/* --- ajax  --- */
 
 class Message {
     constructor(msgID, toWho, fromWho, msgContent, dateCreated) {
@@ -33,7 +42,9 @@ function displayMessages(messages) {
 
     let table = document.getElementById("dtBasicExampleMessage");
     //let row = table.rows[0]
-    //let numberOfColumns = row.cells.length; 
+    //let numberOfColumns = row.cells.length;
+
+    DeleteRows(tBasicExampleMessage);
 
     for (message of messages){
     let newRow = table.insertRow(1); // inserting a new row to the table as the first row
@@ -42,6 +53,7 @@ function displayMessages(messages) {
     newRow.insertCell(1).innerHTML = message.originEmail;
     newRow.insertCell(2).innerHTML = message.content;
     newRow.insertCell(3).innerHTML = message.dateCreated.month + "/" + message.dateCreated.dayOfMonth + "/" +message.dateCreated.year;
+
     }
 }
 
@@ -64,12 +76,32 @@ function getAllMessages() {
 
 /* reimbursement methods below*/
 
+class Reimbursement {
+    constructor (reimbursementId, startDate, startTime, location,
+        description, cost, gradingFormat, eventType, justification,
+        dateSubmitted, email, timeMissed){
+        this.reimbursementId = reimbursementId;
+        this.startDate = startDate;
+        this.startTime = startTime;
+        this.location = location;
+        this.description = description;
+        this.cost = cost;
+        this.gradingFormat = gradingFormat;
+        this.eventType = eventType;
+        this.justification = justification;
+        this.dateSubmitted = dateSubmitted;
+        this.email = email;
+        this.timeMissed = timeMissed;
+    }
+}
+
 function displayReimbursements(reimbursements) {
 
     let table = document.getElementById("dtBasicExampleReimburse");
     //let row = table.rows[0]
-    //let numberOfColumns = row.cells.length; 
-
+    //let numberOfColumns = row.cells.length;
+    
+    DeleteRows(dtBasicExampleReimburse); 
 
     for ( reimbursement of reimbursements){
 
@@ -83,11 +115,10 @@ function displayReimbursements(reimbursements) {
 
     }
 
-  
-
 }
 
 function getAllReimbursements() {
+
     let xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4) {
@@ -102,4 +133,5 @@ function getAllReimbursements() {
     }
     xhr.open("GET", "reimbursement", true);
     xhr.send();
+
 }

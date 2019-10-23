@@ -28,13 +28,12 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"></script>
 
-      <script>
+    <!-- <script>
         window.onload = function() {
             getAllMessages();
             getAllReimbursements();
         };
-    </script>
-
+    </script> -->
     <!-- -->
     <link rel="stylesheet" href="home/home.component.css" />
 
@@ -52,7 +51,7 @@
       href="image/favicon/favicon-16x16.png" />
     <link rel="manifest" href="image/favicon/site.webmanifest" />
 
-    <title>Hello, world!</title>
+    <title>Supervisor Homepage</title>
   </head>
 
   <body>
@@ -380,27 +379,26 @@
                   <div class="modal-body mx-3">
                     <div class="md-form mb-5">
 
-                        <div class="form-group">
-                            <label data-error="wrong" data-success="right"
-                            for="formNameEdit">Status: </label>
-                            <select class="form-control validate" id="formNameEdit">
-                              <option>Approved</option>
-                              <option>MoreInfo</option>
-                              <option>Rejected</option>
-
-                            </select>
-                          </div>
+                      <div class="form-group">
+                        <label data-error="wrong" data-success="right"
+                          for="formNameEdit">Status: </label>
+                        <select class="form-control validate" id="formNameEdit" onclick="insertRequiredField()">
+                          <option id="approved">Approved</option>
+                          <option id="moreinfo">MoreInfo</option>
+                          <option id="rejected">Rejected</option>
+                        </select>
+                      </div>
                     </div>
 
 
 
                     <div class="md-form mb-5">
-                        <div class="form-group">
-                            <label data-error="wrong" data-success="right"
-                            for="formSalaryEdit">Reason: </label>
-                            <label for="formSalaryEdit"></label>
-                            <textarea class="form-control validate" id="formSalaryEdit" rows="3" required></textarea>
-                          </div>
+                      <div class="form-group">
+                        <label data-error="wrong" data-success="right"
+                          for="formSalaryEdit">Reason: </label>
+                        <textarea class="form-control validate"
+                          id="formSalaryEdit" rows="3"></textarea>
+                      </div>
                     </div>
 
 
@@ -418,8 +416,8 @@
 
             <div class="text-center buttonEditWrapper">
               <button class="btn btn-info btn-rounded btn-sm buttonEdit"
-                data-toggle="modal" data-target="#modalEdit"
-                >Edit<i class="fa fa-pencil-alt"></i></a> <!--TODO-->
+                data-toggle="modal" data-target="#modalEdit">Edit<i class="fa
+                  fa-pencil-alt"></i></a> <!--TODO-->
             </div>
 
             <div class="modal fade" id="modalDelete" tabindex="-1" role="dialog"
@@ -479,7 +477,7 @@
 
                 <th class="th-sm">Submitted Date
 
-                  </th>
+                </th>
 
               </tr>
             </thead>
@@ -504,25 +502,6 @@
 
 
     <!-- code end -->
-    <script>
-        $("#dtBasicExample").mdbEditor({
-            mdbEditor: true
-        });
-    </script>
-    <script>
-        $("tr").click(function () {
-            cr($(this));
-        }
-        );
-        function cr(node) {
-            console.log(node);
-            if (node.attr("class") == "bs-select") {
-                node.removeAttr("class");
-            }
-            else
-                node.attr("class", "bs-select");
-        }
-    </script>
   </body>
 
 </html>

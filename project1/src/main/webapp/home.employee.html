@@ -28,12 +28,8 @@
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
 
-
-               <script>
-            window.onload = function() {
-                getAllMessages();
-                getAllReimbursements();
-            };
+        <script>
+            window.onload = getAllMessagesAndReimbursements();
         </script>
 
         <!-- -->
@@ -53,7 +49,7 @@
             href="image/favicon/favicon-16x16.png" />
         <link rel="manifest" href="image/favicon/site.webmanifest" />
 
-        <title>Hello, world!</title>
+        <title>Employee Homepage</title>
     </head>
 
     <body>
@@ -139,24 +135,14 @@
                                 buttonDelete" id="reimburse-del-btn"
                                 data-toggle="modal" disabled
                                 data-target="#modalDelete" disabled> Delete <i
-                                    class="fa fa-times"></i></a> <!--TODO : delete btn-->>
+                                    class="fa fa-times"></i></a> <!--TODO : delete btn-->
                         </div>
-
-                        <div class="text-center">
-                                <button class="btn btn-danger btn-sm btn-rounded
-                                    buttonDelete" id="reimburse-del-btn"
-                                    data-toggle="modal" disabled
-                                    data-target="#modalDelete" disabled> Delete <i
-                                        class="fa fa-times"></i></a>
-                            </div>
-
-
-
                     </div>
 
 
                     <!--!THIS IS REIMBURSEMENT TABLE HISTORY-->
-                    <table id="dtBasicExampleReimburse" class="table table-striped
+                    <table id="dtBasicExampleReimburse" class="table
+                        table-striped
                         table-bordered" cellspacing="0" width="100%">
                         <thead>
                             <tr>
@@ -243,7 +229,7 @@
                                                     for="inputName">To: </label>
                                                 <input type="email"
                                                     id="inputName"
-                                                    name = "sendTo"
+                                                    name="sendTo"
                                                     class="form-control
                                                     validate">
                                             </div>
@@ -255,7 +241,7 @@
                                                 </label>
                                                 <textarea class="form-control
                                                     validate" id="inputPosition"
-                                                    name = "msgContext"
+                                                    name="msgContext"
                                                     rows="3"></textarea>
                                             </div>
                                         </div>
@@ -360,25 +346,6 @@
         </div>
 
         <!-- code end -->
-        <script>
-        $("#dtBasicExample").mdbEditor({
-            mdbEditor: true
-        });
-    </script>
-        <script>
-        $("tr").click(function () {
-            cr($(this));
-        }
-        );
-        function cr(node) {
-            console.log(node);
-            if (node.attr("class") == "bs-select") {
-                node.removeAttr("class");
-            }
-            else
-                node.attr("class", "bs-select");
-        }
-    </script>
     </body>
 
 </html>
