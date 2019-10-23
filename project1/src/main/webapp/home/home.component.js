@@ -15,8 +15,18 @@ $(document).ready(function() {
             $(this).addClass('selected').siblings().removeClass('selected');
         }
      });      
-     
+
 });
+
+function enableReimbursementBtn(){
+
+  if(document.getElementsByClassName('selected').length != 0 ){ // exists
+    document.getElementById("reimburse-del-btn").disabled = false
+  } else {
+    document.getElementById("reimburse-del-btn").disabled = true
+  }
+
+}
 
 /* my functions */
 
