@@ -39,5 +39,5 @@ body {
 }
 
 .selected {
-  color: red;
+  background-color: #FFFB53;
 }

@@ -1,11 +1,21 @@
 $(document).ready(function() {
-    $("#dtBasicExampleReimburse tr").click(function(){
-        $(this).addClass('selected').siblings().removeClass('selected');       
+
+    $("#dtBasicExampleReimburse tbody tr").click(function(){
+        if ($(this).attr("class") == "selected") {
+            $(this).removeClass("selected");
+        } else { 
+            $(this).addClass('selected').siblings().removeClass('selected');
+        }
      });
+ 
+     $("#dtBasicExampleMessage tbody tr").click(function(){
+        if ($(this).attr("class") == "selected") {
+            $(this).removeClass("selected");
+        } else { 
+            $(this).addClass('selected').siblings().removeClass('selected');
+        }
+     });      
      
-     $("#dtBasicExampleMessage tr").click(function(){
-        $(this).addClass('selected').siblings().removeClass('selected');       
-     });
 });
 
 /* my functions */
