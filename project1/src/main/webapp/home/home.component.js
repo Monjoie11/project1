@@ -1,4 +1,3 @@
-
 class Reimbursement {
     constructor (reimbursementId, startDate, startTime, location,
         description, cost, gradingFormat, eventType, justification,
@@ -76,11 +75,11 @@ function displayReimbursements(reimbursements) {
 
         let newRow = table.insertRow(1); // inserting a new row to the table as the first row
 
-        newRow.insertCell(0).innerHTML = reimbursement.reimbursementId
-        newRow.insertCell(1).innerHTML = reimbursement.eventType
-        newRow.insertCell(2).innerHTML = reimbursement.status
-        newRow.insertCell(3).innerHTML = reimbursement.totalAmount //reimbursed amt calculated based on event type and cost
-        newRow.insertCell(4).innerHTML = reimbursement.dateSubmitted
+        newRow.insertCell(0).innerHTML = reimbursement.reimbursementId;
+        newRow.insertCell(1).innerHTML = reimbursement.eventType;
+        newRow.insertCell(2).innerHTML = reimbursement.status;
+        newRow.insertCell(3).innerHTML = reimbursement.totalAmount; //reimbursed amt calculated based on event type and cost
+        newRow.insertCell(4).innerHTML = reimbursement.dateSubmitted.month + "/" + reimbursement.dateSubmitted.dayOfMonth + "/" + reimbursement.dateSubmitted.year;
 
     }
 

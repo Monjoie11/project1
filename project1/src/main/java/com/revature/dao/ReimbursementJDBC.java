@@ -165,7 +165,7 @@ public class ReimbursementJDBC implements ReimbursementDao {
 	@Override
 	public List<Reimbursement> getEmployeeReimbursement(String email) {
 
-		String sql = "select * from reimbursment where email = ?";
+		String sql = "select * from reimbursement where email = ?";
 
 		PreparedStatement stmt;
 
