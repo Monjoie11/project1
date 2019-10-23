@@ -98,7 +98,7 @@ public class ReimbursementJDBC implements ReimbursementDao {
 	@Override
 	public List<Reimbursement> getAllReimbursements() {
 
-		String sql = "select * from reimbursment";
+		String sql = "select * from reimbursement";
 
 		PreparedStatement stmt;
 
