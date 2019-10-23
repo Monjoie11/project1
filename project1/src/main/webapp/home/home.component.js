@@ -1,3 +1,23 @@
+
+class Reimbursement {
+    constructor (reimbursementId, startDate, startTime, location,
+        description, cost, gradingFormat, eventType, justification,
+        dateSubmitted, email, timeMissed){
+        this.reimbursementId = reimbursementId;
+        this.startDate = startDate;
+        this.startTime = startTime;
+        this.location = location;
+        this.description = description;
+        this.cost = cost;
+        this.gradingFormat = gradingFormat;
+        this.eventType = eventType;
+        this.justification = justification;
+        this.dateSubmitted = dateSubmitted;
+        this.email = email;
+        this.timeMissed = timeMissed;
+    }
+}
+
 class Message {
     constructor(msgID, toWho, fromWho, msgContent, dateCreated) {
         this.toWho = toWho;
@@ -8,7 +28,7 @@ class Message {
     }
 }
 
-let testMsg = new Message("testToWho", 0, "testFromWHom", "testMsg", "10/10/1000");
+//let testMsg = new Message("testToWho", 0, "testFromWHom", "testMsg", "10/10/1000");
 
 function displayMessages(message) {
 
@@ -42,24 +62,7 @@ function getAllMessages() {
     xhr.send();
 }
 
-class Reimbursement {
-    constructor (reimbursementId, startDate, startTime, location,
-        description, cost, gradingFormat, eventType, justification,
-        dateSubmitted, email, timeMissed){
-        this.reimbursementId = reimbursementId;
-        this.startDate = startDate;
-        this.startTime = startTime;
-        this.location = location;
-        this.description = description;
-        this.cost = cost;
-        this.gradingFormat = gradingFormat;
-        this.eventType = eventType;
-        this.justification = justification;
-        this.dateSubmitted = dateSubmitted;
-        this.email = email;
-        this.timeMissed = timeMissed;
-    }
-}
+/* reimbursement methods below*/
 
 function displayReimbursements(reimbursements) {
 

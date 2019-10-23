@@ -1,7 +1,7 @@
 package com.revature.service;
 
 import java.util.List;
-
+import static com.revature.util.LoggerUtil.*;
 import com.revature.dao.ReimbursementJDBC;
 import com.revature.pojos.Employee;
 import com.revature.pojos.Reimbursement;
@@ -12,7 +12,7 @@ public class ReimbursementImpl implements ReimbursementService{
 	@Override
 	public boolean addReimbursementRequest(Reimbursement reimbursement) {
 		
-		
+		trace("reimbusementimpl add");
 		reimbursementJDBC.createReimbursement(reimbursement);
 		
 		return true;
@@ -21,7 +21,7 @@ public class ReimbursementImpl implements ReimbursementService{
 
 	@Override
 	public List<Reimbursement> getReimbursmentList(Employee employee) {
-	
+		trace("reimbusementimpl get list");
 		if(employee.getRole().equals(Employee.Role.EMPLOYEE)) {
 			return reimbursementJDBC.getEmployeeReimbursement(employee.getEmail());
 		} else {

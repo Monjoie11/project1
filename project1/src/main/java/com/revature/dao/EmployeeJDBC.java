@@ -1,5 +1,6 @@
 package com.revature.dao;
 
+import static com.revature.util.LoggerUtil.trace;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -45,10 +46,12 @@ public class EmployeeJDBC implements EmployeeDao {
 			}
 			
 		} catch (SQLException e) {
+			trace("emp jdbc catch get employee");
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
+		trace("get emp jdbc" + employee.toString());
 		return employee;
 		
 	}
