@@ -1,40 +1,45 @@
 $(document).ready(function() {
+  $("#dtBasicExampleReimburse tbody tr").click(function() {
+    if ($(this).attr("class") == "selected") {
+      $(this).removeClass("selected");
+    } else {
+      $(this)
+        .addClass("selected")
+        .siblings()
+        .removeClass("selected");
+    }
 
-    $("#dtBasicExampleReimburse tbody tr").click(function(){
-        if ($(this).attr("class") == "selected") {
-            $(this).removeClass("selected");
-        } else { 
-            $(this).addClass('selected').siblings().removeClass('selected');
-        }
+    enableReimbursementBtn();
+  });
 
-        enableReimbursementBtn();
-     });
- 
-     $("#dtBasicExampleMessage tbody tr").click(function(){
-        if ($(this).attr("class") == "selected") {
-            $(this).removeClass("selected");
-        } else { 
-            $(this).addClass('selected').siblings().removeClass('selected');
-        }
+  $("#dtBasicExampleMessage tbody tr").click(function() {
+    if ($(this).attr("class") == "selected") {
+      $(this).removeClass("selected");
+    } else {
+      $(this)
+        .addClass("selected")
+        .siblings()
+        .removeClass("selected");
+    }
 
-        enableReimbursementBtn();
-     });
-
+    enableReimbursementBtn();
+  });
 });
 
-function enableReimbursementBtn(){
-
-  if(document.getElementsByClassName('selected').length != 0 ){ // exists
-    document.getElementById("reimburse-del-btn").disabled = false
+function enableReimbursementBtn() {
+  if (document.getElementsByClassName("selected").length != 0) {
+    // exists
+    document.getElementById("reimburse-del-btn").disabled = false;
   } else {
-    document.getElementById("reimburse-del-btn").disabled = true
+    document.getElementById("reimburse-del-btn").disabled = true;
   }
-
 }
 
-function deleteMyRecord(){
-  let row = document.getElementsByClassName('selected')[0];
+function deleteMyRecord() {
+  let row = document.getElementsByClassName("selected")[0]
   row.parentNode.removeChild(row);
+  deleteRecord("reimbursementID="+row.cells[0].innerHTML)
+  
 }
 
 /* my functions */
@@ -185,4 +190,11 @@ function getAllReimbursements() {
   };
   xhr.open("GET", "reimbursement", true);
   xhr.send();
+}
+
+function deleteRecord(msg) {
+  let xhr = new XMLHttpRequest();
+
+  xhr.open("DELETE", "reimbursement", true);
+  xhr.send(msg);
 }
