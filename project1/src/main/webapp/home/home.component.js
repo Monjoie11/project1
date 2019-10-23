@@ -6,6 +6,8 @@ $(document).ready(function() {
         } else { 
             $(this).addClass('selected').siblings().removeClass('selected');
         }
+
+        enableReimbursementBtn();
      });
  
      $("#dtBasicExampleMessage tbody tr").click(function(){
@@ -14,7 +16,9 @@ $(document).ready(function() {
         } else { 
             $(this).addClass('selected').siblings().removeClass('selected');
         }
-     });      
+
+        enableReimbursementBtn();
+     });
 
 });
 
@@ -26,6 +30,11 @@ function enableReimbursementBtn(){
     document.getElementById("reimburse-del-btn").disabled = true
   }
 
+}
+
+function deleteMyRecord(){
+  let row = document.getElementsByClassName('selected')[0];
+  row.parentNode.removeChild(row);
 }
 
 /* my functions */
