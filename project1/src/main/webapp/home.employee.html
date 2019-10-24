@@ -31,9 +31,10 @@
         <script src="home/home.component.js"></script>
 
         <!-- ! uncomment -->
-        <!-- <script> 
-            window.onload = setInterval(getAllMessagesAndReimbursements, 60000);
-        </script> -->
+        <script> 
+            // window.onload = setInterval(getAllMessagesAndReimbursements, 60000);
+            // window.onload = getAllMessagesAndReimbursements();
+        </script>
 
         <!-- -->
         <link rel="stylesheet" href="home/home.component.css" />
@@ -116,7 +117,7 @@
                                         deleteButtonsWrapper">
                                         <button type="button" class="btn
                                             btn-danger btnYesClass" id="btnYes"
-                                            data-dismiss="modal" onclick="deleteMyRecord()">Yes</button>
+                                            data-dismiss="modal" onclick="deleteSelected()">Yes</button>
                                         <button type="button" class="btn
                                             btn-primary btnNoClass" id="btnNo"
                                             data-dismiss="modal">No</button>
@@ -241,7 +242,10 @@
                     <!-- in class after table table-striped -->
                     <table id="dtBasicExampleReimburse" class="table
                       
-                        table-bordered" cellspacing="0" width="100%">
+                        table-bordered" cellspacing="0" width="100%"
+                        
+                        onclick="addRowHandlers()"
+                        >
                         <thead>
                             <tr>
                                 <th class="th-sm">Reimbursement ID
@@ -324,7 +328,7 @@
                                         </button>
                                     </div>
                                     <!--change this input pop-up tab to create a message-->
-                                    <form action="message" method="POST">
+                                    <form action="message" method="POST" id="sendMsg">
 
 
                                         <div class="modal-body mx-3">
@@ -351,16 +355,21 @@
                                             </div>
                                         </div>
 
-                                        <div class="modal-footer d-flex
+                                        <!-- <div class="modal-footer d-flex
                                             justify-content-center
                                             buttonAddFormWrapper">
                                             <button class="btn
                                                 btn-outline-primary
                                                 btn-block buttonAdd"
-                                                data-dismiss="modal">Send
+                                                data-dismiss="modal"
+                                                type="submit"
+                                                form="sendMsg"
+                                                >Send
                                             </button>
-                                        </div>
+                                        </div> -->
 
+
+                                        <button type="submit" class="btn btn-danger">Submit</button>
                                     </form>
                                 </div>
                             </div>
@@ -374,8 +383,8 @@
                         </div>
 
 
-                        <div class="modal fade" id="modalDelete" tabindex="-1"
-                            role="dialog" aria-labelledby="modalDelete"
+                        <div class="modal fade" id="modalDeleteMsg" tabindex="-1"
+                            role="dialog" aria-labelledby="modalDeleteMsg"
                             aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
@@ -418,7 +427,8 @@
 
                       <!-- in class after table table-striped -->
                     <table id="dtBasicExampleMessage" class="table 
-                        table-bordered" cellspacing="0" width="100%">
+                        table-bordered" cellspacing="0" width="100%"
+                        onclick="addRowHandlersMsg()">
                         <thead>
                             <tr>
                                 <th class="th-sm">Message ID

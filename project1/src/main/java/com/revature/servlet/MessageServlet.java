@@ -3,6 +3,7 @@ package com.revature.servlet;
 import static com.revature.util.LoggerUtil.trace;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,13 +48,13 @@ public class MessageServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		Employee employee = (Employee) request.getSession().getAttribute("employee");
-
+		LocalDate msgRecieved = LocalDate.now();
 		message.setMessageId(0);
 		message.setOriginEmail(employee.getEmail());
 		message.setTargetEmail(request.getParameter("sendTo"));
-	//	message.setStatus(Message.Status.valueOf(request.getParameter("we neeed to name this field")));
-		message.setContent(request.getParameter("msgContent"));
-	//	message.setDateCreated(LocalDate.parse(request.getParameter("we neeed to name this field")));
+		message.setStatus(Message.Status.SENT);
+		message.setContent(request.getParameter("msgContext"));
+		message.setDateCreated(msgRecieved);
 
 		trace("doPost ReimbursementServlet.java");
 		

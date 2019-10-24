@@ -1,51 +1,50 @@
-@import url('https://fonts.googleapis.com/css?family=Arvo');
+@import url("https://fonts.googleapis.com/css?family=Arvo");
 
-*{
-    font-family: 'Arvo';
-    box-sizing: border-box;
+* {
+  font-family: "Arvo";
+  box-sizing: border-box;
 }
 
-body{
-    background-image: url('http://www.picshunger.com/wp-content/uploads/2014/04/128.jpg');
-    background-attachment: fixed;
-    background-size: cover;
-    background-repeat: no-repeat;
+body {
+  background-image: url("http://www.picshunger.com/wp-content/uploads/2014/04/128.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
-.card{
-    margin: auto;
-    width: 300px;
-    height: 370px;
-    top: 100px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px 0 #000000;
-    background-color: rgba(0,0,0,0.8) !important;
-    color: white;
+.card {
+  margin: auto;
+  width: 300px;
+  height: 370px;
+  top: 100px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0 #000000;
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  color: white;
 }
 
-.card-header{
-    text-align: center;
+.card-header {
+  text-align: center;
 }
 
-.login-form-control{
-    width: 99%;
+.login-form-control {
+  width: 99%;
 }
 
-#email-label{
-    margin-right: 56%;
+#email-label {
+  margin-right: 56%;
 }
 
-#password-label{
-    margin-right: 70%;
+#password-label {
+  margin-right: 70%;
 }
 
-.login-form-group.form-check{
-    margin-top: 3%;
+.login-form-group.form-check {
+  margin-top: 3%;
 }
 
-.btn.btn-danger{
-    margin-top: 11%;
-    margin-left: 33%;
-    background-color: rgba(0,0,0,0.0)
+.btn.btn-danger {
+  margin-top: 11%;
+  margin-left: 33%;
+  background-color: rgba(0, 0, 0, 0);
 }
-

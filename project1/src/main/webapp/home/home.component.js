@@ -1,40 +1,67 @@
-$(document).ready(function() {
-  $("#dtBasicExampleReimburse tbody tr").click(function() {
-    if ($(this).attr("class") == "selected") {
-      $(this).removeClass("selected");
-    } else {
-      $(this)
-        .addClass("selected")
-        .siblings()
-        .removeClass("selected");
-    }
+function addRowHandlers() {
+  let table = document.getElementById("dtBasicExampleReimburse");
+  let rows = table.getElementsByTagName("tr");
+  for (i = 0; i < rows.length; i++) {
+    let currentRow = table.rows[i];
+    let createClickHandler = function(row) {
+      return function() {
+        doYourThing(row);
+      };
+    };
+    currentRow.onclick = createClickHandler(currentRow);
+  }
+}
 
+function doYourThing(row) {
+  if (row.className == "selected") {
+    row.className = "";
+  } else {
+    let currentSelected = document.getElementsByClassName("selected");
+    for (let i = 0; i < currentSelected.length; i++) {
+      currentSelected[i].className = "";
+    }
+    row.className = "selected";
     enableReimbursementBtn();
-  });
+  }
+}
 
-  $("#dtBasicExampleMessage tbody tr").click(function() {
-    if ($(this).attr("class") == "selected") {
-      $(this).removeClass("selected");
-    } else {
-      $(this)
-        .addClass("selected")
-        .siblings()
-        .removeClass("selected");
+function addRowHandlersMsg() {
+  let table = document.getElementById("dtBasicExampleMessage");
+  let rows = table.getElementsByTagName("tr");
+  for (i = 0; i < rows.length; i++) {
+    let currentRow = table.rows[i];
+    let createClickHandler = function(row) {
+      return function() {
+        doYourThingForMsg(row);
+      };
+    };
+    currentRow.onclick = createClickHandler(currentRow);
+  }
+}
+
+function doYourThingForMsg(row) {
+  if (row.className == "selectedMsg") {
+    row.className = "";
+  } else {
+    let currentSelected = document.getElementsByClassName("selectedMsg");
+    for (let i = 0; i < currentSelected.length; i++) {
+      currentSelected[i].className = "";
     }
-
+    row.className = "selectedMsg";
     enableMsgBtn();
-  });
-});
+  }
+}
 
-function DisplaySelectedReimbursementDetails(reimburseObj) {
+function DisplaySelectedReimbursementDetails(r) {
   // document.getElementById("namehere").innerHTML =
   // document.getElementById("departhere").innerHTML =
   // document.getElementById("cemailhere").innerHTML =
   // document.getElementById("phonehere").innerHTML =
   // document.getElementById("rolehere").innerHTML =
 
-  document.getElementById("reimburseidhere").innerHTML =
-    reimburseObj.reimbursementId;
+  for (reimburseObj of r)
+    document.getElementById("reimburseidhere").innerHTML =
+      reimburseObj.reimbursementId;
   document.getElementById("reqdatehere").innerHTML =
     reimburseObj.startDate.month +
     "/" +
@@ -118,7 +145,7 @@ function getReimbursementByID() {
 }
 
 function enableMsgBtn() {
-  if (document.getElementsByClassName("selected").length != 0) {
+  if (document.getElementsByClassName("selectedMsg").length != 0) {
     // exists
     document.getElementById("msg-ops-btn-del").disabled = false;
   } else {
@@ -135,17 +162,26 @@ function enableReimbursementBtn() {
   }
 }
 
+function deleteSelected() {
+  deleteMyRecord();
+  deleteMyMsg();
+}
+
 function deleteMyRecord() {
   // for reimbursement
-  let row = document.getElementsByClassName("selected")[0];
-  row.parentNode.removeChild(row);
-  deleteRecord("reimbursementID=" + row.cells[0].innerHTML);
+  if (document.getElementsByClassName("selected").length > 0) {
+    let row = document.getElementsByClassName("selected")[0];
+    row.parentNode.removeChild(row);
+    deleteRecord("reimbursementID=" + row.cells[0].innerHTML);
+  }
 }
 
 function deleteMyMsg() {
-  let row = document.getElementsByClassName("selected")[0];
-  row.parentNode.removeChild(row);
-  deleteMsg("msgID=" + row.cells[0].innerHTML);
+  if (document.getElementsByClassName("selectedMsg").length > 0) {
+    let row = document.getElementsByClassName("selectedMsg")[0];
+    row.parentNode.removeChild(row);
+    deleteMsg("msgID=" + row.cells[0].innerHTML);
+  }
 }
 
 /* my functions */
