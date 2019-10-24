@@ -23,7 +23,7 @@ function showProjectedReimbursementAmt() {
       reimburseAmt = cost * 0.3;
       break;
     default:
-        alert("Error: invalid event type...");
+      alert("Error: invalid event type...");
       break;
   }
 
