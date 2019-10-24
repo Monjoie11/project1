@@ -24,7 +24,6 @@ body {
 }
 
 .reimburse-submit-btn {
-    display: flex; 
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
-

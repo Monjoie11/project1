@@ -52,15 +52,16 @@ function doYourThingForMsg(row) {
   }
 }
 
-function DisplaySelectedReimbursementDetails(reimburseObj) {
+function DisplaySelectedReimbursementDetails(r) {
   // document.getElementById("namehere").innerHTML =
   // document.getElementById("departhere").innerHTML =
   // document.getElementById("cemailhere").innerHTML =
   // document.getElementById("phonehere").innerHTML =
   // document.getElementById("rolehere").innerHTML =
 
-  document.getElementById("reimburseidhere").innerHTML =
-    reimburseObj.reimbursementId;
+  for (reimburseObj of r)
+    document.getElementById("reimburseidhere").innerHTML =
+      reimburseObj.reimbursementId;
   document.getElementById("reqdatehere").innerHTML =
     reimburseObj.startDate.month +
     "/" +
