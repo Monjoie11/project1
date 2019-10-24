@@ -42,7 +42,7 @@ public class ReimbursementServlet extends HttpServlet{
 		reimbursement.setGradingFormat(request.getParameter("grading-format"));
 		reimbursement.setEventType(request.getParameter("event-type"));
 		reimbursement.setJustification(request.getParameter("work-related-justification"));
-		reimbursement.setDateSubmitted(LocalDate.parse(request.getParameter("date")));
+		reimbursement.setDateSubmitted(LocalDate.now());
 		reimbursement.setEmail(employee.getEmail());
 		reimbursement.setTimeMissed(Integer.parseInt(request.getParameter("time-missed")));
         reimbursement.setTotalAmount(reimbursementImpl.makeTotalAmount(reimbursement.getCost(), reimbursement.getEventType()));
@@ -57,6 +57,7 @@ public class ReimbursementServlet extends HttpServlet{
 		
 		reimbursementImpl.addReimbursementRequest(reimbursement);
 		
+		response.sendRedirect("home");
 		
 		
 		
