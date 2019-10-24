@@ -324,7 +324,7 @@
                                         </button>
                                     </div>
                                     <!--change this input pop-up tab to create a message-->
-                                    <form action="message" method="POST">
+                                    <form action="message" method="POST" id="sendMsg">
 
 
                                         <div class="modal-body mx-3">
@@ -351,16 +351,21 @@
                                             </div>
                                         </div>
 
-                                        <div class="modal-footer d-flex
+                                        <!-- <div class="modal-footer d-flex
                                             justify-content-center
                                             buttonAddFormWrapper">
                                             <button class="btn
                                                 btn-outline-primary
                                                 btn-block buttonAdd"
-                                                data-dismiss="modal">Send
+                                                data-dismiss="modal"
+                                                type="submit"
+                                                form="sendMsg"
+                                                >Send
                                             </button>
-                                        </div>
+                                        </div> -->
 
+
+                                        <button type="submit" class="btn btn-danger">Submit</button>
                                     </form>
                                 </div>
                             </div>
