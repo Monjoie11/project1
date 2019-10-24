@@ -14,7 +14,7 @@
             crossorigin="anonymous" />
 
         <!-- Optional JavaScript -->
-        <script src="home/home.component.js"></script>
+
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -27,14 +27,13 @@
             src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
+        <!-- Optional JavaScript -->
+        <script src="home/home.component.js"></script>
 
-
-               <script>
-            window.onload = function() {
-                getAllMessages();
-                getAllReimbursements();
-            };
-        </script>
+        <!-- ! uncomment -->
+        <!-- <script> 
+            window.onload = setInterval(getAllMessagesAndReimbursements, 60000);
+        </script> -->
 
         <!-- -->
         <link rel="stylesheet" href="home/home.component.css" />
@@ -53,7 +52,7 @@
             href="image/favicon/favicon-16x16.png" />
         <link rel="manifest" href="image/favicon/site.webmanifest" />
 
-        <title>Hello, world!</title>
+        <title>Employee Homepage</title>
     </head>
 
     <body>
@@ -61,25 +60,25 @@
 
         <!-- A grey horizontal navbar that becomes vertical on small screens -->
         <nav class="navbar navbar-expand-sm bg-light navbar-light fixed-top">
-            <a class="navbar-brand" href="home.component.html">
+            <a class="navbar-brand" href="/home">
                 <img src="image/test/8b3ea9dfcb4e5d577ad1051224313d7b.png"
                     alt="Logo" style="width:40px;" />
             </a>
             <!-- Links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="home.component.html"><i class="fa
+                    <a class="nav-link" href="/home"><i class="fa
                             fa-home"></i> Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="reimbursement.component.html">Tuition
+                    <a class="nav-link" href="/reimbursement">Tuition
                         Reimbursement</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link"><i class="fa fa-bell"></i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="login.component.html">Logout</a>
+                    <a class="nav-link" href="/login">Logout</a>
                 </li>
             </ul>
         </nav>
@@ -91,14 +90,6 @@
             <div class="card">
                 <h1 class="card-header">Your Reimbursement Snapshot</h1>
                 <div class="card-body">
-
-
-                    <div class="block my-4">
-                        <div class="d-flex justify-content-center">
-                            <p class="h5 text-primary createShowP">0 row
-                                selected</p>
-                        </div>
-                    </div>
 
                     <div class="row d-flex justify-content-center modalWrapper">
                         <div class="modal fade" id="modalDelete" tabindex="-1"
@@ -125,7 +116,7 @@
                                         deleteButtonsWrapper">
                                         <button type="button" class="btn
                                             btn-danger btnYesClass" id="btnYes"
-                                            data-dismiss="modal">Yes</button>
+                                            data-dismiss="modal" onclick="deleteMyRecord()">Yes</button>
                                         <button type="button" class="btn
                                             btn-primary btnNoClass" id="btnNo"
                                             data-dismiss="modal">No</button>
@@ -139,24 +130,117 @@
                                 buttonDelete" id="reimburse-del-btn"
                                 data-toggle="modal" disabled
                                 data-target="#modalDelete" disabled> Delete <i
-                                    class="fa fa-times"></i></a> <!--TODO : delete btn-->>
+                                    class="fa fa-times"></i></a> <!--TODO : delete btn-->
                         </div>
 
-                        <div class="text-center">
-                                <button class="btn btn-danger btn-sm btn-rounded
-                                    buttonDelete" id="reimburse-del-btn"
-                                    data-toggle="modal" disabled
-                                    data-target="#modalDelete" disabled> Delete <i
-                                        class="fa fa-times"></i></a>
-                            </div>
 
+                        <div class="modal fade modalEditClass" id="modalEdit" tabindex="-1" role="dialog" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header text-center">
+                                  <h4 class="modal-title w-100 font-weight-bold text-secondary ml-5">Details</h4>
+                                  <button type="button" class="close text-secondary" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body mx-3">
+                                  <div class="md-form mb-5"> <!-- !IDs for populating -->
+                                      <p>Name: <span id="namehere"> </span></p>
+                                  </div>
+                      
+                                  <div class="md-form mb-5">
+                                        <p>Department: <span id="departhere"> </span></p>
+                                  </div>
+
+                                  <div class="md-form mb-5">
+                                        <p>Contact Email: <span id="cemailhere"> </span></p>
+                                  </div>
+                      
+                                  <div class="md-form mb-5">
+                                        <p>Phone: <span id="phonehere"> </span></p>
+                                  </div>
+                      
+                                  <div class="md-form mb-5">
+                                        <p>Role: <span id="rolehere"> </span></p>
+                                  </div>
+                      
+                                  <div class="md-form mb-5">
+                                        <p>Reimbursement ID: <span id="reimburseidhere"> </span></p>
+                                  </div>
+                      
+                                  <div class="md-form mb-5">
+                                        <p>Requested Date: <span id="reqdatehere"> </span></p>
+                                  </div>
+
+                                  <div class="md-form mb-5">
+                                        <p>Requested Time: <span id="reqtimehere"> </span></p>
+                                  </div>
+
+                                  <div class="md-form mb-5">
+                                        <p>Location: <span id="lochere"> </span></p>
+                                  </div>
+
+                                  <div class="md-form mb-5">
+                                        <p>Description: <span id="deschere"> </span></p>
+                                  </div>
+
+                                  <div class="md-form mb-5">
+                                        <p>Cost: <span id="costhere"> </span></p>
+                                  </div>
+
+                                  <div class="md-form mb-5">
+                                        <p>Grading Format: <span id="gradinghere"> </span></p>
+                                  </div>
+
+                                  <div class="md-form mb-5">
+                                        <p>Event Type: <span id="eventhere"> </span></p>
+                                  </div>
+
+                                  <div class="md-form mb-5">
+                                        <p>Work-related Justification: <span id="justhere"> </span></p>
+                                  </div>
+
+                                  <div class="md-form mb-5">
+                                        <p>Submitted Date: <span id="sdatehere"> </span></p>
+                                  </div>
+
+                                  <div class="md-form mb-5">
+                                        <p>Work Hours Missed: <span id="missedhere"> </span></p>
+                                  </div>
+
+                                  <div class="md-form mb-5">
+                                        <p>Status: <span id="statushere"> </span></p>
+                                  </div>
+
+                                  <div class="md-form mb-5">
+                                        <p>Projected Reimbursement Amount: <span id="projamthere"> </span></p>
+                                  </div>
+
+
+                      
+                      
+                                </div>
+                                <div class="modal-footer d-flex justify-content-center editInsideWrapper">
+                                  <button class="btn btn-outline-secondary btn-block editInside" data-dismiss="modal">Done 
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                      
+                          <div class="text-center buttonEditWrapper">
+                            <button class="btn btn-info btn-rounded btn-sm buttonEdit" data-toggle="modal" data-target="#modalEdit" onclick=getReimbursementByID();
+                              >View <i class="fa fa-eye"></i></a>
+                          </div>
 
 
                     </div>
 
 
                     <!--!THIS IS REIMBURSEMENT TABLE HISTORY-->
-                    <table id="dtBasicExampleReimburse" class="table table-striped
+                    <!-- in class after table table-striped -->
+                    <table id="dtBasicExampleReimburse" class="table
+                      
                         table-bordered" cellspacing="0" width="100%">
                         <thead>
                             <tr>
@@ -186,6 +270,20 @@
                                 <td>4</td>
                                 <td>5</td>
                             </tr>
+                            <tr>
+                                <td>11</td>
+                                <td>22</td>
+                                <td>33</td>
+                                <td>44</td>
+                                <td>55</td>
+                            </tr>
+                            <tr>
+                                <td>11</td>
+                                <td>22</td>
+                                <td>33</td>
+                                <td>44</td>
+                                <td>55</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -207,13 +305,6 @@
             <div class="card-body">
 
                 <div class="wrapper-editor">
-
-                    <div class="block my-4">
-                        <div class="d-flex justify-content-center">
-                            <p class="h5 text-primary createShowP">0 row
-                                selected</p>
-                        </div>
-                    </div>
 
                     <div class="row d-flex justify-content-center modalWrapper">
                         <div class="modal fade addNewInputs" id="modalAdd"
@@ -243,7 +334,7 @@
                                                     for="inputName">To: </label>
                                                 <input type="email"
                                                     id="inputName"
-                                                    name = "sendTo"
+                                                    name="sendTo"
                                                     class="form-control
                                                     validate">
                                             </div>
@@ -255,7 +346,7 @@
                                                 </label>
                                                 <textarea class="form-control
                                                     validate" id="inputPosition"
-                                                    name = "msgContext"
+                                                    name="msgContext"
                                                     rows="3"></textarea>
                                             </div>
                                         </div>
@@ -318,14 +409,15 @@
 
                         <div class="text-center">
                             <button class="btn btn-danger btn-sm btn-rounded
-                                buttonDelete" id="msg-ops-btn"
+                                buttonDelete" id="msg-ops-btn-del"
                                 data-toggle="modal" disabled
                                 data-target="#modalDelete" disabled>Delete <i
                                     class="fa fa-times"></i></a>
                         </div>
                     </div>
 
-                    <table id="dtBasicExampleMessage" class="table table-striped
+                      <!-- in class after table table-striped -->
+                    <table id="dtBasicExampleMessage" class="table 
                         table-bordered" cellspacing="0" width="100%">
                         <thead>
                             <tr>
@@ -360,25 +452,6 @@
         </div>
 
         <!-- code end -->
-        <script>
-        $("#dtBasicExample").mdbEditor({
-            mdbEditor: true
-        });
-    </script>
-        <script>
-        $("tr").click(function () {
-            cr($(this));
-        }
-        );
-        function cr(node) {
-            console.log(node);
-            if (node.attr("class") == "bs-select") {
-                node.removeAttr("class");
-            }
-            else
-                node.attr("class", "bs-select");
-        }
-    </script>
     </body>
 
 </html>
