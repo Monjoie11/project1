@@ -45,11 +45,15 @@ public class ReimbursementServlet extends HttpServlet{
 		reimbursement.setDateSubmitted(LocalDate.parse(request.getParameter("date")));
 		reimbursement.setEmail(employee.getEmail());
 		reimbursement.setTimeMissed(Integer.parseInt(request.getParameter("time-missed")));
-        reimbursement.setStatus(Reimbursement.Status.valueOf(request.getParameter("status")));
-        reimbursement.setTotalAmount(Double.parseDouble(request.getParameter("totalAmount")));
+        reimbursement.setTotalAmount(reimbursementImpl.makeTotalAmount(reimbursement.getCost(), reimbursement.getEventType()));
 
 		trace("doPost ReimbursementServlet.java");
 
+		if(reimbursementImpl.checkAnnualTotal(reimbursement.getEmail())) {
+			reimbursement.setStatus(Reimbursement.Status.NEEDSUPAPPROV);
+		} else {
+			reimbursement.setStatus(Reimbursement.Status.DENIED);
+		}
 		
 		reimbursementImpl.addReimbursementRequest(reimbursement);
 		
