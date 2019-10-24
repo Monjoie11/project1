@@ -35,7 +35,7 @@ public class ReimbursementJDBC implements ReimbursementDao {
 
 		try {
 			stmt = conn.prepareStatement(sql);
-			stmt.setString(1, String.valueOf(reimbursementId));
+			stmt.setInt(1, reimbursementId);
 			ResultSet rs = stmt.executeQuery();
 
 			while (rs.next()) {
@@ -59,6 +59,8 @@ public class ReimbursementJDBC implements ReimbursementDao {
 			error("reimbursementJDBC SQL getReimbursement");
 			e.printStackTrace();
 		}
+		
+		trace(reimbursement.toString());
 
 		return reimbursement;
 	}
