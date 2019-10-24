@@ -41,3 +41,7 @@ body {
 .selected {
   background-color: #FFFB53;
 }
+
+.selectedMsg {
+  background-color: red;
+}
