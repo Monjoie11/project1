@@ -30,7 +30,6 @@ public class ConnectionFactory {
 				url = prop.getProperty("url");
 				user = prop.getProperty("user");
 				password = prop.getProperty("password");
-				trace(url + " " + user + " "+ password);
 			} catch(FileNotFoundException e) {
 				
 			}catch (IOException e) {

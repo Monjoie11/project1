@@ -59,7 +59,8 @@ public class MessageServlet extends HttpServlet {
 		trace("doPost ReimbursementServlet.java");
 		
 		messageImpl.addMessageSent(message);
-
+		
+		response.sendRedirect("home");
 
 	}
 

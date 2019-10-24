@@ -142,7 +142,7 @@ public class ReimbursementImpl implements ReimbursementService {
 			
 		}
 
-		return false;
+		return true;
 	}
 
 	@Override
@@ -166,6 +166,8 @@ public class ReimbursementImpl implements ReimbursementService {
 		LocalDate today = LocalDate.now();
 		
 		List<Reimbursement> reimbList = reimbursementJDBC.getEmployeeReimbursement(email);
+		
+		trace(reimbList.toString());
 		
 		for(Reimbursement r: reimbList) {
 			if(r.getDateSubmitted().getYear() == today.getYear()) {
