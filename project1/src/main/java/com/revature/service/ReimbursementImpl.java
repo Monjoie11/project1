@@ -145,4 +145,43 @@ public class ReimbursementImpl implements ReimbursementService {
 		return false;
 	}
 
+	@Override
+	public double makeTotalAmount(double cost, String type) {
+		
+		switch(type) {
+		case "University Course": return (cost * .8);
+		case "Seminar": return (cost * .6);
+		case "Certification Preparation Class": return (cost * .8);
+		case "Certification": return cost;
+		case "Technical Training": return (cost * .9);
+		case "Other": return (cost * .3);
+		default: return 0;
+		}
+
+	}
+
+	@Override
+	public boolean checkAnnualTotal(String email) {
+		double total = 0;
+		LocalDate today = LocalDate.now();
+		
+		List<Reimbursement> reimbList = reimbursementJDBC.getEmployeeReimbursement(email);
+		
+		for(Reimbursement r: reimbList) {
+			if(r.getDateSubmitted().getYear() == today.getYear()) {
+				total += r.getTotalAmount();
+			}
+			
+			if(r.getDateSubmitted().isAfter(r.getStartDate().minusDays(7))) {
+				return false;
+			}
+		}
+		
+		if(total > 1000) {
+			return false;
+		}
+		
+		return true;
+	}
+
 }

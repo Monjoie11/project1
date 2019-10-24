@@ -13,4 +13,8 @@ public interface ReimbursementService {
 	
 	public boolean updateReimbursementStatus(Reimbursement reimbursement, Employee employee, String inputAction);
 	
+	public double makeTotalAmount(double cost, String type);
+	
+	public boolean checkAnnualTotal(String email);
+	
 }
