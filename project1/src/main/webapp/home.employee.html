@@ -145,75 +145,75 @@
                                 </div>
                                 <div class="modal-body mx-3">
                                   <div class="md-form mb-5"> <!-- !IDs for populating -->
-                                      <p>Name: <span> </span></p>
+                                      <p>Name: <span id="namehere"> </span></p>
                                   </div>
                       
                                   <div class="md-form mb-5">
-                                        <p>Department: <span> </span></p>
+                                        <p>Department: <span id="departhere"> </span></p>
                                   </div>
 
                                   <div class="md-form mb-5">
-                                        <p>Contact Email: <span> </span></p>
+                                        <p>Contact Email: <span id="cemailhere"> </span></p>
                                   </div>
                       
                                   <div class="md-form mb-5">
-                                        <p>Phone: <span> </span></p>
+                                        <p>Phone: <span id="phonehere"> </span></p>
                                   </div>
                       
                                   <div class="md-form mb-5">
-                                        <p>Role: <span> </span></p>
+                                        <p>Role: <span id="rolehere"> </span></p>
                                   </div>
                       
                                   <div class="md-form mb-5">
-                                        <p>Reimbursement ID: <span> </span></p>
+                                        <p>Reimbursement ID: <span id="reimburseidhere"> </span></p>
                                   </div>
                       
                                   <div class="md-form mb-5">
-                                        <p>Requested Date: <span> </span></p>
+                                        <p>Requested Date: <span id="reqdatehere"> </span></p>
                                   </div>
 
                                   <div class="md-form mb-5">
-                                        <p>Requested Time: <span> </span></p>
+                                        <p>Requested Time: <span id="reqtimehere"> </span></p>
                                   </div>
 
                                   <div class="md-form mb-5">
-                                        <p>Location: <span> </span></p>
+                                        <p>Location: <span id="lochere"> </span></p>
                                   </div>
 
                                   <div class="md-form mb-5">
-                                        <p>Description: <span> </span></p>
+                                        <p>Description: <span id="deschere"> </span></p>
                                   </div>
 
                                   <div class="md-form mb-5">
-                                        <p>Cost: <span> </span></p>
+                                        <p>Cost: <span id="costhere"> </span></p>
                                   </div>
 
                                   <div class="md-form mb-5">
-                                        <p>Grading Format: <span> </span></p>
+                                        <p>Grading Format: <span id="gradinghere"> </span></p>
                                   </div>
 
                                   <div class="md-form mb-5">
-                                        <p>Event Type: <span> </span></p>
+                                        <p>Event Type: <span id="eventhere"> </span></p>
                                   </div>
 
                                   <div class="md-form mb-5">
-                                        <p>Work-related Justification: <span> </span></p>
+                                        <p>Work-related Justification: <span id="justhere"> </span></p>
                                   </div>
 
                                   <div class="md-form mb-5">
-                                        <p>Submitted Date: <span> </span></p>
+                                        <p>Submitted Date: <span id="sdatehere"> </span></p>
                                   </div>
 
                                   <div class="md-form mb-5">
-                                        <p>Work Hours Missed: <span> </span></p>
+                                        <p>Work Hours Missed: <span id="missedhere"> </span></p>
                                   </div>
 
                                   <div class="md-form mb-5">
-                                        <p>Status: <span> </span></p>
+                                        <p>Status: <span id="statushere"> </span></p>
                                   </div>
 
                                   <div class="md-form mb-5">
-                                        <p>Projected Reimbursement Amount: <span> </span></p>
+                                        <p>Projected Reimbursement Amount: <span id="projamthere"> </span></p>
                                   </div>
 
 
@@ -229,7 +229,7 @@
                           </div>
                       
                           <div class="text-center buttonEditWrapper">
-                            <button class="btn btn-info btn-rounded btn-sm buttonEdit" data-toggle="modal" data-target="#modalEdit"
+                            <button class="btn btn-info btn-rounded btn-sm buttonEdit" data-toggle="modal" data-target="#modalEdit" onclick=getReimbursementByID();
                               >View <i class="fa fa-eye"></i></a>
                           </div>
 

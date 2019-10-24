@@ -26,7 +26,98 @@ $(document).ready(function() {
   });
 });
 
-function enableMsgBtn(){
+function DisplaySelectedReimbursementDetails(reimburseObj) {
+  // document.getElementById("namehere").innerHTML =
+  // document.getElementById("departhere").innerHTML =
+  // document.getElementById("cemailhere").innerHTML =
+  // document.getElementById("phonehere").innerHTML =
+  // document.getElementById("rolehere").innerHTML =
+
+  document.getElementById("reimburseidhere").innerHTML =
+    reimburseObj.reimbursementId;
+  document.getElementById("reqdatehere").innerHTML =
+    reimburseObj.startDate.month +
+    "/" +
+    reimburseObj.startDate.dayOfMonth +
+    "/" +
+    reimburseObj.startDate.year;
+
+  document.getElementById("reqtimehere").innerHTML =
+    reimburseObj.startTime.hour + ":" + reimburseObj.startTime.minute;
+
+  document.getElementById("lochere").innerHTML = reimburseObj.location;
+  document.getElementById("deschere").innerHTML = reimburseObj.description;
+  document.getElementById("costhere").innerHTML = reimburseObj.cost;
+  document.getElementById("gradinghere").innerHTML = reimburseObj.gradingFormat;
+  document.getElementById("justhere").innerHTML = reimburseObj.justification;
+  document.getElementById("sdatehere").innerHTML =
+    reimburseObj.dateSubmitted.month +
+    "/" +
+    reimburseObj.dateSubmitted.dayOfMonth +
+    "/" +
+    reimburseObj.dateSubmitted.year;
+  document.getElementById("eventhere").innerHTML = reimburseObj.eventType;
+  document.getElementById("missedhere").innerHTML = reimburseObj.timeMissed;
+  document.getElementById("statushere").innerHTML = reimburseObj.status;
+  document.getElementById(
+    "projamthere"
+  ).innerHTML = showProjectedReimbursementAmt(
+    reimburseObj.cost,
+    reimburseObj.eventType
+  );
+}
+
+function showProjectedReimbursementAmt(cost, eventType) {
+  let reimburseAmt = 0;
+
+  switch (eventType) {
+    case "University Course":
+      reimburseAmt = parseInt(cost) * 0.8;
+      break;
+    case "Seminar":
+      reimburseAmt = parseInt(cost) * 0.6;
+      break;
+    case "Certification Preparation Class":
+      reimburseAmt = parseInt(cost) * 0.75;
+      break;
+    case "Certification":
+      reimburseAmt = parseInt(cost) * 1;
+      break;
+    case "Technical Training":
+      reimburseAmt = parseInt(cost) * 0.9;
+      break;
+    case "Other":
+      reimburseAmt = parseInt(cost) * 0.3;
+      break;
+    default:
+      alert("Error: invalid event type...");
+      break;
+  }
+
+  reimburseAmt = reimburseAmt.toFixed(2);
+  reimburseAmt = "$" + reimburseAmt;
+  return reimburseAmt;
+}
+
+function getReimbursementByID() {
+  let xhr = new XMLHttpRequest();
+  let row = document.getElementsByClassName("selected")[0];
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4) {
+      if (xhr.status === 200) {
+        DisplaySelectedReimbursementDetails(JSON.parse(xhr.responseText));
+      } else {
+        window.alert("Failed to retireve reimbursement :(");
+      }
+    } else {
+      window.alert("Fetching Request");
+    }
+  };
+  xhr.open("GET", "reimbursement", true);
+  xhr.send("reimbursementID=" + row.cells[0].innerHTML);
+}
+
+function enableMsgBtn() {
   if (document.getElementsByClassName("selected").length != 0) {
     // exists
     document.getElementById("msg-ops-btn-del").disabled = false;
@@ -44,18 +135,17 @@ function enableReimbursementBtn() {
   }
 }
 
-function deleteMyRecord() { // for reimbursement
-  let row = document.getElementsByClassName("selected")[0]
+function deleteMyRecord() {
+  // for reimbursement
+  let row = document.getElementsByClassName("selected")[0];
   row.parentNode.removeChild(row);
-  deleteRecord("reimbursementID="+row.cells[0].innerHTML)
-  
+  deleteRecord("reimbursementID=" + row.cells[0].innerHTML);
 }
 
 function deleteMyMsg() {
-  let row = document.getElementsByClassName("selected")[0]
+  let row = document.getElementsByClassName("selected")[0];
   row.parentNode.removeChild(row);
-  deleteMsg("msgID="+row.cells[0].innerHTML)
-  
+  deleteMsg("msgID=" + row.cells[0].innerHTML);
 }
 
 /* my functions */
@@ -102,7 +192,7 @@ function displayMessages(messages) {
   //let row = table.rows[0]
   //let numberOfColumns = row.cells.length;
 
-  DeleteRows(tBasicExampleMessage);
+  DeleteRows(dtBasicExampleMessage);
 
   for (message of messages) {
     let newRow = table.insertRow(1); // inserting a new row to the table as the first row
