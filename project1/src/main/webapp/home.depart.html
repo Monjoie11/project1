@@ -1,527 +1,624 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1,
-      shrink-to-fit=no" />
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1,
+            shrink-to-fit=no" />
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous" />
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+            crossorigin="anonymous" />
 
-    <!-- Optional JavaScript -->
-    <script src="home/home.component.js"></script>
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"></script>
+        <!-- Optional JavaScript -->
 
-      <script>
-        window.onload = function() {
-            getAllMessages();
-            getAllReimbursements();
-        };
-    </script>
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+        <!-- Optional JavaScript -->
+        <script src="home/home.component.js"></script>
+        <script src="home/home.direct.js"></script>
 
-    <!-- -->
-    <link rel="stylesheet" href="home/home.component.css" />
+        <!-- ! uncomment -->
+        <script> 
+            // window.onload = setInterval(getAllMessagesAndReimbursements, 60000);
+            // window.onload = getAllMessagesAndReimbursements();
+            window.onload = function(){getAllReimbursementsAdmin(); getAllMessages();DeleteRows(dtBasicExampleReimburse)}
+        </script>
 
-    <!-- Add icon library -->
-    <link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-      />
+        <!-- -->
+        <link rel="stylesheet" href="home/home.component.css" />
 
-    <!--  -->
-    <link rel="apple-touch-icon" sizes="180x180"
-      href="image/favicon/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32"
-      href="image/favicon/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16"
-      href="image/favicon/favicon-16x16.png" />
-    <link rel="manifest" href="image/favicon/site.webmanifest" />
+        <!-- Add icon library -->
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+            />
 
-    <title>Hello, world!</title>
-  </head>
+        <!--  -->
+        <link rel="apple-touch-icon" sizes="180x180"
+            href="image/favicon/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32"
+            href="image/favicon/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16"
+            href="image/favicon/favicon-16x16.png" />
+        <link rel="manifest" href="image/favicon/site.webmanifest" />
 
-  <body>
-    <!-- code begin -->
+        <title>Employee Homepage</title>
+    </head>
 
-    <!-- A grey horizontal navbar that becomes vertical on small screens -->
-    <nav class="navbar navbar-expand-sm bg-light navbar-light fixed-top">
-      <a class="navbar-brand" href="home.component.html">
-        <img src="image/test/8b3ea9dfcb4e5d577ad1051224313d7b.png"
-          alt="Logo" style="width:40px;" />
-      </a>
-      <!-- Links -->
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="home.component.html"><i class="fa
-              fa-home"></i> Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="reimbursement.component.html">Tuition
-            Reimbursement</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link"><i class="fa fa-bell"></i></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="login.component.html">Logout</a>
-        </li>
-      </ul>
-    </nav>
+    <body>
+        <!-- code begin -->
 
-    <!-- creating three tables below 1) admin 2) past reimbusements 3) messaging-->
-    <!-- ENCAPSALUTION OF FIRST TABLE WITH STYLING-->
+        <!-- A grey horizontal navbar that becomes vertical on small screens -->
+        <nav class="navbar navbar-expand-sm bg-light navbar-light fixed-top">
+            <a class="navbar-brand" href="/home">
+                <img src="image/test/8b3ea9dfcb4e5d577ad1051224313d7b.png"
+                    alt="Logo" style="width:40px;" />
+            </a>
+            <!-- Links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="home"><i class="fa
+                            fa-home"></i> Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="reimbursement.component.html">Tuition
+                        Reimbursement</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"><i class="fa fa-bell"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="logout">Logout</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- creating three tables below 1) admin 2) past reimbusements 3) messaging-->
+        <!-- ENCAPSALUTION OF FIRST TABLE WITH STYLING-->
+        <div class="wrapper-editor">
+
+            <div class="card">
+                <h1 class="card-header">Your Reimbursement Snapshot</h1>
+                <div class="card-body">
+
+                    <div class="row d-flex justify-content-center modalWrapper">
+                        <div class="modal fade" id="modalDelete" tabindex="-1"
+                            role="dialog" aria-labelledby="modalDelete"
+                            aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header text-center">
+                                        <h4 class="modal-title w-100
+                                            font-weight-bold ml-5 text-danger">Delete</h4>
+                                        <button type="button" class="close
+                                            text-danger" data-dismiss="modal"
+                                            aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body mx-3">
+                                        <p class="text-center h4">Are you sure
+                                            to delete selected row?</p>
+
+                                    </div>
+                                    <div class="modal-footer d-flex
+                                        justify-content-center
+                                        deleteButtonsWrapper">
+                                        <button type="button" class="btn
+                                            btn-danger btnYesClass" id="btnYes"
+                                            data-dismiss="modal" onclick="deleteSelected()">Yes</button>
+                                        <button type="button" class="btn
+                                            btn-primary btnNoClass" id="btnNo"
+                                            data-dismiss="modal">No</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-center">
+                            <button class="btn btn-danger btn-sm btn-rounded
+                                buttonDelete" id="reimburse-del-btn"
+                                data-toggle="modal" disabled
+                                data-target="#modalDelete" disabled> Delete <i
+                                    class="fa fa-times"></i></a> <!--TODO : delete btn-->
+                        </div>
+
+
+                        <div class="modal fade modalEditClass" id="modalEdit" tabindex="-1" role="dialog" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header text-center">
+                                  <h4 class="modal-title w-100 font-weight-bold text-secondary ml-5">Details</h4>
+                                  <button type="button" class="close text-secondary" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body mx-3">
+                                  <div class="md-form mb-5"> <!-- !IDs for populating -->
+                                      <p>Name: <span id="namehere"> </span></p>
+                                  </div>
+                      
+                                  <div class="md-form mb-5">
+                                        <p>Department: <span id="departhere"> </span></p>
+                                  </div>
+
+                                  <div class="md-form mb-5">
+                                        <p>Contact Email: <span id="cemailhere"> </span></p>
+                                  </div>
+                      
+                                  <div class="md-form mb-5">
+                                        <p>Phone: <span id="phonehere"> </span></p>
+                                  </div>
+                      
+                                  <div class="md-form mb-5">
+                                        <p>Role: <span id="rolehere"> </span></p>
+                                  </div>
+                      
+                                  <div class="md-form mb-5">
+                                        <p>Reimbursement ID: <span id="reimburseidhere"> </span></p>
+                                  </div>
+                      
+                                  <div class="md-form mb-5">
+                                        <p>Requested Date: <span id="reqdatehere"> </span></p>
+                                  </div>
+
+                                  <div class="md-form mb-5">
+                                        <p>Requested Time: <span id="reqtimehere"> </span></p>
+                                  </div>
+
+                                  <div class="md-form mb-5">
+                                        <p>Location: <span id="lochere"> </span></p>
+                                  </div>
+
+                                  <div class="md-form mb-5">
+                                        <p>Description: <span id="deschere"> </span></p>
+                                  </div>
+
+                                  <div class="md-form mb-5">
+                                        <p>Cost: <span id="costhere"> </span></p>
+                                  </div>
+
+                                  <div class="md-form mb-5">
+                                        <p>Grading Format: <span id="gradinghere"> </span></p>
+                                  </div>
+
+                                  <div class="md-form mb-5">
+                                        <p>Event Type: <span id="eventhere"> </span></p>
+                                  </div>
+
+                                  <div class="md-form mb-5">
+                                        <p>Work-related Justification: <span id="justhere"> </span></p>
+                                  </div>
+
+                                  <div class="md-form mb-5">
+                                        <p>Submitted Date: <span id="sdatehere"> </span></p>
+                                  </div>
+
+                                  <div class="md-form mb-5">
+                                        <p>Work Hours Missed: <span id="missedhere"> </span></p>
+                                  </div>
+
+                                  <div class="md-form mb-5">
+                                        <p>Status: <span id="statushere"> </span></p>
+                                  </div>
+
+                                  <div class="md-form mb-5">
+                                        <p>Projected Reimbursement Amount: <span id="projamthere"> </span></p>
+                                  </div>
+
+
+                      
+                      
+                                </div>
+                                <div class="modal-footer d-flex justify-content-center editInsideWrapper">
+                                  <button class="btn btn-outline-secondary btn-block editInside" data-dismiss="modal">Done 
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                      
+                          <div class="text-center buttonEditWrapper">
+                            <button class="btn btn-info btn-rounded btn-sm buttonEdit" data-toggle="modal" data-target="#modalEdit" onclick=getReimbursementByID();
+                              >View <i class="fa fa-eye"></i></a>
+                          </div>
+
+
+                    </div>
+
+
+                    <!--!THIS IS REIMBURSEMENT TABLE HISTORY-->
+                    <!-- in class after table table-striped -->
+                    <table id="dtBasicExampleReimburse" class="table
+                      
+                        table-bordered" cellspacing="0" width="100%"
+                        
+                        onclick="addRowHandlers()"
+                        >
+                        <thead>
+                            <tr>
+                                <th class="th-sm">Reimbursement ID
+
+                                </th>
+                                <th class="th-sm">Type
+
+                                </th>
+                                <th class="th-sm">Status
+
+                                </th>
+                                <th class="th-sm">Total Amount
+
+                                </th>
+                                <th class="th-sm">Submitted Date
+
+                                </th>
+                            </tr>
+                        </thead>
+                        <!-- THIS IS TEST DATA-->
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>4</td>
+                                <td>5</td>
+                            </tr>
+                            <tr>
+                                <td>11</td>
+                                <td>22</td>
+                                <td>33</td>
+                                <td>44</td>
+                                <td>55</td>
+                            </tr>
+                            <tr>
+                                <td>11</td>
+                                <td>22</td>
+                                <td>33</td>
+                                <td>44</td>
+                                <td>55</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+
+
+
+
+            </div>
+        </div>
+
+
+
+        <!--!this is the second table-->
+
+        <div class="card">
+            <h1 class="card-header">Inbox</h1>
+            <div class="card-body">
+
+                <div class="wrapper-editor">
+
+                    <div class="row d-flex justify-content-center modalWrapper">
+                        <div class="modal fade addNewInputs" id="modalAdd"
+                            tabindex="-1" role="dialog"
+                            aria-labelledby="modalAdd"
+                            aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header text-center">
+                                        <h4 class="modal-title w-100
+                                            font-weight-bold text-primary ml-5">New
+                                            Message</h4>
+                                        <button type="button" class="close
+                                            text-primary" data-dismiss="modal"
+                                            aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <!--change this input pop-up tab to create a message-->
+                                    <form action="message" method="POST" id="sendMsg">
+
+
+                                        <div class="modal-body mx-3">
+                                            <div class="md-form mb-5">
+                                                <label data-error="wrong"
+                                                    data-success="right"
+                                                    for="inputName">To: </label>
+                                                <input type="email"
+                                                    id="inputName"
+                                                    name="sendTo"
+                                                    class="form-control
+                                                    validate">
+                                            </div>
+
+                                            <div class="md-form mb-5">
+                                                <label data-error="wrong"
+                                                    data-success="right"
+                                                    for="inputPosition">Message:
+                                                </label>
+                                                <textarea class="form-control
+                                                    validate" id="inputPosition"
+                                                    name="msgContext"
+                                                    rows="3"></textarea>
+                                            </div>
+                                        </div>
+
+                                        <!-- <div class="modal-footer d-flex
+                                            justify-content-center
+                                            buttonAddFormWrapper">
+                                            <button class="btn
+                                                btn-outline-primary
+                                                btn-block buttonAdd"
+                                                data-dismiss="modal"
+                                                type="submit"
+                                                form="sendMsg"
+                                                >Send
+                                            </button>
+                                        </div> -->
+
+
+                                        <button type="submit" class="btn btn-danger">Submit</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-center">
+                            <a href="" class="btn btn-info btn-rounded btn-sm"
+                                data-toggle="modal" id="msg-ops-btn"
+                                data-target="#modalAdd">Add
+                                <i class="fa fa-plus"></i></a>
+                        </div>
+
+
+                        <div class="modal fade" id="modalDeleteMsg" tabindex="-1"
+                            role="dialog" aria-labelledby="modalDeleteMsg"
+                            aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header text-center">
+                                        <h4 class="modal-title w-100
+                                            font-weight-bold ml-5 text-danger">Delete</h4>
+                                        <button type="button" class="close
+                                            text-danger" data-dismiss="modal"
+                                            aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body mx-3">
+                                        <p class="text-center h4">Are you sure
+                                            to delete selected row?</p>
+
+                                    </div>
+                                    <div class="modal-footer d-flex
+                                        justify-content-center
+                                        deleteButtonsWrapper">
+                                        <button type="button" class="btn
+                                            btn-danger btnYesClass" id="btnYes"
+                                            data-dismiss="modal">Yes</button>
+                                        <button type="button" class="btn
+                                            btn-primary btnNoClass" id="btnNo"
+                                            data-dismiss="modal">No</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-center">
+                            <button class="btn btn-danger btn-sm btn-rounded
+                                buttonDelete" id="msg-ops-btn-del"
+                                data-toggle="modal" disabled
+                                data-target="#modalDelete" disabled>Delete <i
+                                    class="fa fa-times"></i></a>
+                        </div>
+                    </div>
+
+                      <!-- in class after table table-striped -->
+                    <table id="dtBasicExampleMessage" class="table 
+                        table-bordered" cellspacing="0" width="100%"
+                        onclick="addRowHandlersMsg()">
+                        <thead>
+                            <tr>
+                                <th class="th-sm">Message ID
+
+                                </th>
+                                <th class="th-sm">From
+
+                                </th>
+
+                                <th class="th-sm">Message Content
+
+                                </th>
+                                <th class="th-sm">Received Date
+
+                                </th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>4</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- code end -->
+
+ <!-- THIS IS ADMIN TABLE-->
+
+ <div class="card">
+  <h1 class="card-header">Administrator</h1>
+  <div class="card-body">
+
+
     <div class="wrapper-editor">
 
-      <div class="card">
-        <h1 class="card-header">Your Reimbursement Snapshot</h1>
-        <div class="card-body">
+      <div class="row d-flex justify-content-center modalWrapper">
 
-
-          <div class="block my-4">
-            <div class="d-flex justify-content-center">
-              <p class="h5 text-primary createShowP">0 row
-                selected</p>
-            </div>
-          </div>
-
-          <div class="row d-flex justify-content-center modalWrapper">
-            <div class="modal fade" id="modalDelete" tabindex="-1"
-              role="dialog" aria-labelledby="modalDelete"
-              aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header text-center">
-                    <h4 class="modal-title w-100
-                      font-weight-bold ml-5 text-danger">Delete</h4>
-                    <button type="button" class="close
-                      text-danger" data-dismiss="modal"
-                      aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body mx-3">
-                    <p class="text-center h4">Are you sure
-                      to delete selected row?</p>
-
-                  </div>
-                  <div class="modal-footer d-flex
-                    justify-content-center
-                    deleteButtonsWrapper">
-                    <button type="button" class="btn
-                      btn-danger btnYesClass" id="btnYes"
-                      data-dismiss="modal">Yes</button>
-                    <button type="button" class="btn
-                      btn-primary btnNoClass" id="btnNo"
-                      data-dismiss="modal">No</button>
-                  </div>
-                </div>
+<!-- make sure that the id to this form matches the target data in the button-->
+        <div class="modal fade modalEditClass" id="testingIDtoFORM" tabindex="-1" 
+          role="dialog" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold text-secondary
+                  ml-5">Edit form</h4>
+                <button type="button" class="close text-secondary"
+                  data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
               </div>
-            </div>
-
-            <div class="text-center">
-              <button class="btn btn-danger btn-sm btn-rounded
-                buttonDelete" id="reimburse-del-btn"
-                data-toggle="modal" disabled
-                data-target="#modalDelete" disabled> Delete <i
-                  class="fa fa-times"></i></a>
-            </div>
-          </div>
-
-
-          <!--THIS IS REIMBURSEMENT TABLE HISTORY-->
-          <table id="dtBasicExampleReimburse" class="table table-striped
-            table-bordered" cellspacing="0" width="100%">
-            <thead>
-              <tr>
-                <th class="th-sm">Reimbursement ID
-
-                </th>
-                <th class="th-sm">Type
-
-                </th>
-                <th class="th-sm">Status
-
-                </th>
-                <th class="th-sm">Total Amount
-
-                </th>
-                <th class="th-sm">Submitted Date
-
-                </th>
-              </tr>
-            </thead>
-            <!-- THIS IS TEST DATA-->
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-                <td>4</td>
-                <td>5</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-
-
-
-
-
-      </div>
-    </div>
-
-
-
-    <!--this is the second table-->
-
-    <div class="card">
-      <h1 class="card-header">Inbox</h1>
-      <div class="card-body">
-
-        <div class="wrapper-editor">
-
-          <div class="block my-4">
-            <div class="d-flex justify-content-center">
-              <p class="h5 text-primary createShowP">0 row
-                selected</p>
-            </div>
-          </div>
-
-          <div class="row d-flex justify-content-center modalWrapper">
-            <div class="modal fade addNewInputs" id="modalAdd"
-              tabindex="-1" role="dialog"
-              aria-labelledby="modalAdd"
-              aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header text-center">
-                    <h4 class="modal-title w-100
-                      font-weight-bold text-primary ml-5">New
-                      Message</h4>
-                    <button type="button" class="close
-                      text-primary" data-dismiss="modal"
-                      aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <!--change this input pop-up tab to create a message-->
-                  <form action="" method="POST">
-
-
-                    <div class="modal-body mx-3">
-                      <div class="md-form mb-5">
-                        <label data-error="wrong"
-                          data-success="right"
-                          for="inputName">To: </label>
-                        <input type="email"
-                          id="inputName"
-                          name="sendTo"
-                          class="form-control
-                          validate">
-                      </div>
+              <div class="modal-body mx-3">
+                  <form action = "logout" method="POST" id="statusChangeForm">
 
                       <div class="md-form mb-5">
-                        <label data-error="wrong"
-                          data-success="right"
-                          for="inputPosition">Message:
-                        </label>
-                        <textarea class="form-control
-                          validate" id="inputPosition"
-                          name="msgContext"
-                          rows="3"></textarea>
-                      </div>
-                    </div>
-
-                    <div class="modal-footer d-flex
-                      justify-content-center
-                      buttonAddFormWrapper">
-                      <button class="btn
-                        btn-outline-primary
-                        btn-block buttonAdd"
-                        data-dismiss="modal">Send
-                      </button>
-                    </div>
-
-                  </form>
-                </div>
-              </div>
-            </div>
-
-            <div class="text-center">
-              <a href="" class="btn btn-info btn-rounded btn-sm"
-                data-toggle="modal" id="msg-ops-btn"
-                data-target="#modalAdd">Add
-                <i class="fa fa-plus"></i></a>
-            </div>
+                          <div class="form-group">
+                            <label data-error="wrong" data-success="right"
+                              for="formReimburseID">Reimbursement ID: </label>
+                              <input type="number" class="form-control validate" id="formReimburseID" name="reimbursementId" min=0>
+                          </div>
+                        </div>
 
 
-            <div class="modal fade" id="modalDelete" tabindex="-1"
-              role="dialog" aria-labelledby="modalDelete"
-              aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header text-center">
-                    <h4 class="modal-title w-100
-                      font-weight-bold ml-5 text-danger">Delete</h4>
-                    <button type="button" class="close
-                      text-danger" data-dismiss="modal"
-                      aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body mx-3">
-                    <p class="text-center h4">Are you sure
-                      to delete selected row?</p>
-
-                  </div>
-                  <div class="modal-footer d-flex
-                    justify-content-center
-                    deleteButtonsWrapper">
-                    <button type="button" class="btn
-                      btn-danger btnYesClass" id="btnYes"
-                      data-dismiss="modal">Yes</button>
-                    <button type="button" class="btn
-                      btn-primary btnNoClass" id="btnNo"
-                      data-dismiss="modal">No</button>
+                <div class="md-form mb-5">
+                  <div class="form-group">
+                    <label data-error="wrong" data-success="right"
+                      for="formNameEdit">Status: </label>
+                    <select class="form-control validate" id="formNameEdit" name="action"
+                      onclick="insertRequiredField()">
+                      <option id="approved">Approved</option>
+                      <option id="moreinfo">MoreInfo</option>
+                      <option id="rejected">Rejected</option>
+                    </select>
                   </div>
                 </div>
-              </div>
-            </div>
 
-            <div class="text-center">
-              <button class="btn btn-danger btn-sm btn-rounded
-                buttonDelete" id="msg-ops-btn"
-                data-toggle="modal" disabled
-                data-target="#modalDelete" disabled>Delete <i
-                  class="fa fa-times"></i></a>
+                <div class="md-form mb-5">
+                  <div class="form-group">
+                    <label data-error="wrong" data-success="right"
+                      for="formSalaryEdit">Reason: </label>
+                    <textarea class="form-control validate"
+                      id="formSalaryEdit" rows="3"></textarea>
+                  </div>
+                </div>
+                <button input type="submit">Submit</button> 
+              </form>
+              </div>
+              <div class="modal-footer d-flex justify-content-center
+                editInsideWrapper">
+                <!-- <button class="btn btn-outline-secondary btn-block
+                  editInside" data-dismiss="modal" type="submit" form="statusChangeForm">Edit
+                  form
+                </button> -->
+              </div>
             </div>
           </div>
-
-          <table id="dtBasicExampleMessage" class="table table-striped
-            table-bordered" cellspacing="0" width="100%">
-            <thead>
-              <tr>
-                <th class="th-sm">Message ID
-
-                </th>
-                <th class="th-sm">From
-
-                </th>
-
-                <th class="th-sm">Message Content
-
-                </th>
-                <th class="th-sm">Received Date
-
-                </th>
-
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-                <td>4</td>
-              </tr>
-
-            </tbody>
-          </table>
         </div>
-      </div>
-    </div>
 
-    <!-- THIS IS ADMIN TABLE-->
-
-    <div class="card">
-      <h1 class="card-header">Administrator</h1>
-      <div class="card-body">
-
-
-        <div class="wrapper-editor">
-
-          <div class="block my-4">
-            <div class="d-flex justify-content-center">
-              <p class="h5 text-primary createShowP">0 row selected</p>
-            </div>
-          </div>
-
-          <div class="row d-flex justify-content-center modalWrapper">
-
-
-            <div class="modal fade modalEditClass" id="modalEdit" tabindex="-1"
-              role="dialog" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header text-center">
-                    <h4 class="modal-title w-100 font-weight-bold text-secondary
-                      ml-5">Edit form</h4>
-                    <button type="button" class="close text-secondary"
-                      data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body mx-3">
-                    <div class="md-form mb-5">
-
-                        <div class="form-group">
-                            <label data-error="wrong" data-success="right"
-                            for="formNameEdit">Status: </label>
-                            <select class="form-control validate" id="formNameEdit">
-                              <option>Approved</option>
-                              <option>MoreInfo</option>
-                              <option>Rejected</option>
-                            </select>
-                          </div>
-                    </div>
-
-
-
-                    <div class="md-form mb-5">
-                        <div class="form-group">
-                            <label data-error="wrong" data-success="right"
-                            for="formSalaryEdit">Reason: </label>
-                            <label for="formSalaryEdit"></label>
-                            <textarea class="form-control validate" id="formSalaryEdit" rows="3" required></textarea>
-                          </div>
-                    </div>
-
-
-                  </div>
-                  <div class="modal-footer d-flex justify-content-center
-                    editInsideWrapper">
-                    <button class="btn btn-outline-secondary btn-block
-                      editInside" data-dismiss="modal">Edit
-                      form
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="text-center buttonEditWrapper">
-              <button class="btn btn-info btn-rounded btn-sm buttonEdit"
-                data-toggle="modal" data-target="#modalEdit"
-                >Edit<i class="fa fa-pencil-alt"></i></a> <!--TODO-->
-            </div>
-
-            <div class="modal fade" id="modalDelete" tabindex="-1" role="dialog"
-              aria-labelledby="modalDelete"
-              aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header text-center">
-                    <h4 class="modal-title w-100 font-weight-bold ml-5
-                      text-danger">Delete</h4>
-                    <button type="button" class="close text-danger"
-                      data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body mx-3">
-                    <p class="text-center h4">Are you sure to delete selected
-                      row?</p>
-
-                  </div>
-                  <div class="modal-footer d-flex justify-content-center
-                    deleteButtonsWrapper">
-                    <button type="button" class="btn btn-danger btnYesClass"
-                      id="btnYes" data-dismiss="modal">Yes</button>
-                    <button type="button" class="btn btn-primary btnNoClass"
-                      id="btnNo" data-dismiss="modal">No</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="text-center">
-              <button class="btn btn-danger btn-sm btn-rounded buttonDelete"
-                data-toggle="modal" disabled
-                data-target="#modalDelete" disabled>Delete<i class="fas fa-times
-                  ml-1"></i></a>
-            </div>
-          </div>
-
-          <table id="dtBasicExample" class="table table-striped table-bordered"
-            cellspacing="0" width="100%">
-            <thead>
-              <tr>
-                <th class="th-sm">Reimbursement ID
-
-                </th>
-                <th class="th-sm">Type
-
-                </th>
-
-                <th class="th-sm">Status
-
-                </th>
-                <th class="th-sm">Total Amount
-
-                </th>
-
-                <th class="th-sm">Submitted Date
-
-                  </th>
-
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-
-                <td>4</td>
-                <td>5</td>
-
-              </tr>
-
-            </tbody>
-          </table>
+        <div class="text-center buttonEditWrapper">
+          <button class="btn btn-info btn-rounded btn-sm buttonEdit"
+            data-toggle="modal" data-target="#testingIDtoFORM">Edit <i class="fa fa-edit"></i></a> <!--TODO-->
         </div>
 
       </div>
+<!--  put table-striped after first table -->
+<table id="dtBasicExampleAdmin" class="table 
+table-bordered" cellspacing="0" width="100%">
+        <thead>
+          <tr>
+            <th class="th-sm">Reimbursement ID
+
+            </th>
+            <th class="th-sm">Type
+
+            </th>
+
+            <th class="th-sm">Status
+
+            </th>
+            <th class="th-sm">Total Amount
+
+            </th>
+
+            <th class="th-sm">Submitted Date
+
+            </th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+
+            <td>4</td>
+            <td>5</td>
+
+          </tr>
+
+          <td>11</td>
+          <td>22</td>
+          <td>33</td>
+
+          <td>44</td>
+          <td>55</td>
+
+        </tr>
+
+      </tr>
+
+      <td>111</td>
+      <td>222</td>
+      <td>333</td>
+
+      <td>444</td>
+      <td>555</td>
+
+    </tr>
+
+        </tbody>
+      </table>
     </div>
 
+  </div>
+</div>
 
 
-    <!-- code end -->
-    <script>
-        $("#dtBasicExample").mdbEditor({
-            mdbEditor: true
-        });
-    </script>
-    <script>
-        $("tr").click(function () {
-            cr($(this));
-        }
-        );
-        function cr(node) {
-            console.log(node);
-            if (node.attr("class") == "bs-select") {
-                node.removeAttr("class");
-            }
-            else
-                node.attr("class", "bs-select");
-        }
-    </script>
-  </body>
+
+<!-- code end -->
+
+
+
+
+
+
+
+
+
+
+
+    </body>
 
 </html>

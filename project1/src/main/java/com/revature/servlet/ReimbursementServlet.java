@@ -53,7 +53,7 @@ public class ReimbursementServlet extends HttpServlet{
 
 		trace("doPost ReimbursementServlet.java");
 
-		if(reimbursementImpl.checkAnnualTotal(reimbursement.getEmail())) {
+		if(!reimbursementImpl.checkAnnualTotal(reimbursement.getEmail())) {
 			reimbursement.setStatus(Reimbursement.Status.NEEDSUPAPPROV);
 		} else {
 			reimbursement.setStatus(Reimbursement.Status.DENIED);
