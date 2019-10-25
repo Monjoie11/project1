@@ -243,6 +243,7 @@ function displayMessages(messages) {
       "/" +
       message.dateCreated.year;
   }
+  deleteDupes(table);
 }
 
 function getAllMessages() {
@@ -315,6 +316,8 @@ function displayReimbursements(reimbursements) {
       "/" +
       reimbursement.dateSubmitted.year;
   }
+
+  deleteDupes(table)
 }
 
 function getAllReimbursements() {
@@ -346,4 +349,15 @@ function deleteMsg(msg) {
 
   xhr.open("DELETE", "message", true);
   xhr.send(msg);
+}
+
+function deleteDupes(table_id){
+  let rowCount = table_id.rows.length;
+  for (let i = rowCount - 1; i > 0; i--) {
+    for(let j = rowCount - 1; j > 0; j--){
+    //document.getElementById("dtBasicExampleReimburse")
+    if(table_id.rows[i].cells[0].innerHTML == table_id.rows[j].cells[0].innerHTML){
+      table_id.deleteRow(i)
+    }
+  }
 }

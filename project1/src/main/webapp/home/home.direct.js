@@ -23,3 +23,4 @@ function addRowHandlersToAdmin() {
       row.className = "selectedAdmin";
     }
   }
+

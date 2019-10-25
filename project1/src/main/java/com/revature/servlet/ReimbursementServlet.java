@@ -68,19 +68,16 @@ public class ReimbursementServlet extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int counter = 0;
+		
 		trace("doGet reimbursementServlet");
 		ObjectMapper om = new ObjectMapper();
 		
 		Employee employee = (Employee) request.getSession().getAttribute("employee");
 		
 		List<Reimbursement> reimbursementList;
-		if(counter < 1){
+	
 		reimbursementList = reimbursementImpl.getReimbursmentList(employee);
-		counter++;
-		} else {
-		reimbursementList = null;
-		}
+		
 		trace(reimbursementList.toString());
 		response.setContentType("text/plain");
 		response.getWriter().write(om.writeValueAsString(reimbursementList));
