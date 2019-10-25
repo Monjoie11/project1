@@ -105,6 +105,7 @@ public class LoginServlet extends HttpServlet {
 		trace("doPost LoginServlet.java " + employeeEmail + " " + employeePassword);
 
 		employee = empImpl.loginEmployee(employeeEmail, employeePassword);
+		
 		if (employee != null) {
 			HttpSession session;
 			session = request.getSession(true);
