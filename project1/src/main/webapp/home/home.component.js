@@ -197,6 +197,7 @@ function DeleteRows(table_id) {
   for (let i = rowCount - 1; i > 0; i--) {
     table_id.deleteRow(i);
   }
+  //location.reload(true)
 }
 
 function insertRequiredField() {
