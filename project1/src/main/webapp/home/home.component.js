@@ -1,7 +1,7 @@
 function addRowHandlers() {
   let table = document.getElementById("dtBasicExampleReimburse");
   let rows = table.getElementsByTagName("tr");
-  for (i = 0; i < rows.length; i++) {
+  for (i = 1; i < rows.length; i++) {
     let currentRow = table.rows[i];
     let createClickHandler = function(row) {
       return function() {
@@ -28,7 +28,7 @@ function doYourThing(row) {
 function addRowHandlersMsg() {
   let table = document.getElementById("dtBasicExampleMessage");
   let rows = table.getElementsByTagName("tr");
-  for (i = 0; i < rows.length; i++) {
+  for (i = 1; i < rows.length; i++) {
     let currentRow = table.rows[i];
     let createClickHandler = function(row) {
       return function() {
