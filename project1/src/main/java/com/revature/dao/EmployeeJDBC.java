@@ -1,5 +1,6 @@
 package com.revature.dao;
 
+import static com.revature.util.LoggerUtil.trace;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,7 +18,7 @@ public class EmployeeJDBC implements EmployeeDao {
 	private static Connection conn = ConnectionFactory.getConnection();
 	
 	public void setConn(Connection conn) {
-		this.conn = conn;
+		EmployeeJDBC.conn = conn;
 	}
 
 	@Override
@@ -30,7 +31,7 @@ public class EmployeeJDBC implements EmployeeDao {
 		
 		try {
 			PreparedStatement stmt;
-			stmt = conn.prepareStatement(sql);
+			stmt = EmployeeJDBC.conn.prepareStatement(sql);
 			stmt.setString(1, email);
 			ResultSet rs = stmt.executeQuery();
 			
@@ -45,10 +46,12 @@ public class EmployeeJDBC implements EmployeeDao {
 			}
 			
 		} catch (SQLException e) {
+			trace("emp jdbc catch get employee");
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
+		trace("get emp jdbc" + employee.toString());
 		return employee;
 		
 	}

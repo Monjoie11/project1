@@ -1,0 +1,82 @@
+2019-10-23 09:17:34 TRACE root:30 - jdbc:postgresql://benefits.chpjdv8jgvym.us-east-1.rds.amazonaws.com:5432/postgres? postgres benefits
+2019-10-23 09:17:37 ERROR root:14 - SQL error in createReimburse
+2019-10-23 09:22:03 TRACE root:30 - jdbc:postgresql://benefits.chpjdv8jgvym.us-east-1.rds.amazonaws.com:5432/postgres? postgres benefits
+2019-10-23 09:24:46 TRACE root:30 - jdbc:postgresql://benefits.chpjdv8jgvym.us-east-1.rds.amazonaws.com:5432/postgres? postgres benefits
+2019-10-23 09:26:46 TRACE root:30 - jdbc:postgresql://benefits.chpjdv8jgvym.us-east-1.rds.amazonaws.com:5432/postgres? postgres benefits
+2019-10-23 09:30:23 TRACE root:30 - jdbc:postgresql://benefits.chpjdv8jgvym.us-east-1.rds.amazonaws.com:5432/postgres? postgres benefits
+2019-10-23 09:30:57 TRACE root:30 - jdbc:postgresql://benefits.chpjdv8jgvym.us-east-1.rds.amazonaws.com:5432/postgres? postgres benefits
+2019-10-23 09:37:59 TRACE root:30 - jdbc:postgresql://benefits.chpjdv8jgvym.us-east-1.rds.amazonaws.com:5432/postgres? postgres benefits
+2019-10-23 09:47:03 TRACE root:30 - jdbc:postgresql://benefits.chpjdv8jgvym.us-east-1.rds.amazonaws.com:5432/postgres? postgres benefits
+2019-10-23 09:49:12 TRACE root:30 - jdbc:postgresql://benefits.chpjdv8jgvym.us-east-1.rds.amazonaws.com:5432/postgres? postgres benefits
+2019-10-23 09:55:00 TRACE root:30 - jdbc:postgresql://benefits.chpjdv8jgvym.us-east-1.rds.amazonaws.com:5432/postgres? postgres benefits
+2019-10-23 09:55:33 TRACE root:30 - jdbc:postgresql://benefits.chpjdv8jgvym.us-east-1.rds.amazonaws.com:5432/postgres? postgres benefits
+2019-10-23 09:57:53 TRACE root:30 - jdbc:postgresql://benefits.chpjdv8jgvym.us-east-1.rds.amazonaws.com:5432/postgres? postgres benefits
+2019-10-23 10:01:28 TRACE root:30 - jdbc:postgresql://benefits.chpjdv8jgvym.us-east-1.rds.amazonaws.com:5432/postgres? postgres benefits
+2019-10-23 10:01:45 TRACE root:30 - jdbc:postgresql://benefits.chpjdv8jgvym.us-east-1.rds.amazonaws.com:5432/postgres? postgres benefits
+2019-10-23 10:06:33 TRACE root:30 - jdbc:postgresql://benefits.chpjdv8jgvym.us-east-1.rds.amazonaws.com:5432/postgres? postgres benefits
+2019-10-23 10:10:16 TRACE root:30 - jdbc:postgresql://benefits.chpjdv8jgvym.us-east-1.rds.amazonaws.com:5432/postgres? postgres benefits
+2019-10-23 10:10:19 TRACE root:30 - executing message status
+2019-10-23 10:15:32 TRACE root:30 - jdbc:postgresql://benefits.chpjdv8jgvym.us-east-1.rds.amazonaws.com:5432/postgres? postgres benefits
+2019-10-23 10:15:36 TRACE root:30 - executing message status
+2019-10-23 10:32:53 TRACE root:30 - jdbc:postgresql://benefits.chpjdv8jgvym.us-east-1.rds.amazonaws.com:5432/postgres? postgres benefits
+2019-10-23 10:33:36 TRACE root:30 - jdbc:postgresql://benefits.chpjdv8jgvym.us-east-1.rds.amazonaws.com:5432/postgres? postgres benefits
+2019-10-23 10:33:37 TRACE root:30 - get emp jdbcEmployee [email=depthead@email.com, password=test, firstName=deptfirst, lastName=deptlast, phone=1234567890, role=DEPTHEAD, department=SALES]
+2019-10-23 10:36:48 TRACE root:30 - jdbc:postgresql://benefits.chpjdv8jgvym.us-east-1.rds.amazonaws.com:5432/postgres? postgres benefits
+2019-10-23 10:37:28 TRACE root:30 - jdbc:postgresql://benefits.chpjdv8jgvym.us-east-1.rds.amazonaws.com:5432/postgres? postgres benefits
+2019-10-23 10:39:34 TRACE root:30 - jdbc:postgresql://benefits.chpjdv8jgvym.us-east-1.rds.amazonaws.com:5432/postgres? postgres benefits
+2019-10-23 10:39:36 TRACE root:30 - get emp jdbcEmployee [email=null, password=null, firstName=null, lastName=null, phone=null, role=null, department=null]
+2019-10-24 09:26:51 TRACE root:30 - jdbc:postgresql://benefits.chpjdv8jgvym.us-east-1.rds.amazonaws.com:5432/postgres? postgres benefits
+2019-10-24 09:26:52 ERROR root:14 - reimbursementJDBC SQL getReimbursement
+2019-10-24 09:26:52 TRACE root:30 - get emp jdbcEmployee [email=email@email.com, password=test, firstName=first, lastName=last, phone=1234567890, role=EMPLOYEE, department=SALES]
+2019-10-24 10:41:46 TRACE root:30 - jdbc:postgresql://benefits.chpjdv8jgvym.us-east-1.rds.amazonaws.com:5432/postgres? postgres benefits
+2019-10-24 10:41:48 ERROR root:14 - reimbursementJDBC SQL getReimbursement
+2019-10-24 10:41:48 TRACE root:30 - get emp jdbcEmployee [email=email@email.com, password=test, firstName=first, lastName=last, phone=1234567890, role=EMPLOYEE, department=SALES]
+2019-10-24 10:50:34 TRACE root:30 - jdbc:postgresql://benefits.chpjdv8jgvym.us-east-1.rds.amazonaws.com:5432/postgres? postgres benefits
+2019-10-24 10:51:21 TRACE root:30 - jdbc:postgresql://benefits.chpjdv8jgvym.us-east-1.rds.amazonaws.com:5432/postgres? postgres benefits
+2019-10-24 10:51:23 ERROR root:14 - reimbursementJDBC SQL getReimbursement
+2019-10-24 10:51:23 TRACE root:30 - Reimbursement [reimbursementId=0, startDate=null, startTime=null, location=null, description=null, cost=0.0, gradingFormat=null, eventType=null, justification=null, dateSubmitted=null, email=null, timeMissed=0, status=null, totalAmount=0.0]
+2019-10-24 10:51:23 TRACE root:30 - get emp jdbcEmployee [email=email@email.com, password=test, firstName=first, lastName=last, phone=1234567890, role=EMPLOYEE, department=SALES]
+2019-10-24 10:51:23 ERROR root:14 - reimbursementJDBC SQL getReimbursement
+2019-10-24 10:51:23 TRACE root:30 - Reimbursement [reimbursementId=0, startDate=null, startTime=null, location=null, description=null, cost=0.0, gradingFormat=null, eventType=null, justification=null, dateSubmitted=null, email=null, timeMissed=0, status=null, totalAmount=0.0]
+2019-10-24 10:51:23 TRACE root:30 - get emp jdbcEmployee [email=email@email.com, password=test, firstName=first, lastName=last, phone=1234567890, role=EMPLOYEE, department=SALES]
+2019-10-24 10:56:37 TRACE root:30 - jdbc:postgresql://benefits.chpjdv8jgvym.us-east-1.rds.amazonaws.com:5432/postgres? postgres benefits
+2019-10-24 10:56:39 ERROR root:14 - reimbursementJDBC SQL getReimbursement
+2019-10-24 10:56:39 TRACE root:30 - Reimbursement [reimbursementId=0, startDate=null, startTime=null, location=null, description=null, cost=0.0, gradingFormat=null, eventType=null, justification=null, dateSubmitted=null, email=null, timeMissed=0, status=null, totalAmount=0.0]
+2019-10-24 10:56:39 TRACE root:30 - get emp jdbcEmployee [email=email@email.com, password=test, firstName=first, lastName=last, phone=1234567890, role=EMPLOYEE, department=SALES]
+2019-10-24 10:56:39 ERROR root:14 - reimbursementJDBC SQL getReimbursement
+2019-10-24 10:56:39 TRACE root:30 - Reimbursement [reimbursementId=0, startDate=null, startTime=null, location=null, description=null, cost=0.0, gradingFormat=null, eventType=null, justification=null, dateSubmitted=null, email=null, timeMissed=0, status=null, totalAmount=0.0]
+2019-10-24 10:56:39 TRACE root:30 - get emp jdbcEmployee [email=email@email.com, password=test, firstName=first, lastName=last, phone=1234567890, role=EMPLOYEE, department=SALES]
+2019-10-24 10:58:57 TRACE root:30 - jdbc:postgresql://benefits.chpjdv8jgvym.us-east-1.rds.amazonaws.com:5432/postgres? postgres benefits
+2019-10-24 11:01:47 TRACE root:30 - jdbc:postgresql://benefits.chpjdv8jgvym.us-east-1.rds.amazonaws.com:5432/postgres? postgres benefits
+2019-10-24 11:01:55 TRACE root:30 - jdbc:postgresql://benefits.chpjdv8jgvym.us-east-1.rds.amazonaws.com:5432/postgres? postgres benefits
+2019-10-24 11:02:02 ERROR root:14 - reimbursementJDBC SQL getReimbursement
+2019-10-24 11:02:03 TRACE root:30 - Reimbursement [reimbursementId=0, startDate=null, startTime=null, location=null, description=null, cost=0.0, gradingFormat=null, eventType=null, justification=null, dateSubmitted=null, email=null, timeMissed=0, status=null, totalAmount=0.0]
+2019-10-24 11:02:13 TRACE root:30 - jdbc:postgresql://benefits.chpjdv8jgvym.us-east-1.rds.amazonaws.com:5432/postgres? postgres benefits
+2019-10-24 11:02:39 TRACE root:30 - jdbc:postgresql://benefits.chpjdv8jgvym.us-east-1.rds.amazonaws.com:5432/postgres? postgres benefits
+2019-10-24 11:03:53 TRACE root:30 - jdbc:postgresql://benefits.chpjdv8jgvym.us-east-1.rds.amazonaws.com:5432/postgres? postgres benefits
+2019-10-24 11:04:23 TRACE root:30 - get emp jdbcEmployee [email=email@email.com, password=test, firstName=first, lastName=last, phone=1234567890, role=EMPLOYEE, department=SALES]
+2019-10-24 11:04:44 ERROR root:14 - reimbursementJDBC SQL getReimbursement
+2019-10-24 11:04:44 TRACE root:30 - Reimbursement [reimbursementId=0, startDate=null, startTime=null, location=null, description=null, cost=0.0, gradingFormat=null, eventType=null, justification=null, dateSubmitted=null, email=null, timeMissed=0, status=null, totalAmount=0.0]
+2019-10-24 11:04:46 TRACE root:30 - get emp jdbcEmployee [email=email@email.com, password=test, firstName=first, lastName=last, phone=1234567890, role=EMPLOYEE, department=SALES]
+2019-10-24 11:04:55 TRACE root:30 - jdbc:postgresql://benefits.chpjdv8jgvym.us-east-1.rds.amazonaws.com:5432/postgres? postgres benefits
+2019-10-24 11:05:07 TRACE root:30 - jdbc:postgresql://benefits.chpjdv8jgvym.us-east-1.rds.amazonaws.com:5432/postgres? postgres benefits
+2019-10-24 11:15:00 TRACE root:30 - jdbc:postgresql://benefits.chpjdv8jgvym.us-east-1.rds.amazonaws.com:5432/postgres? postgres benefits
+2019-10-24 11:15:24 TRACE root:30 - jdbc:postgresql://benefits.chpjdv8jgvym.us-east-1.rds.amazonaws.com:5432/postgres? postgres benefits
+2019-10-24 11:16:38 TRACE root:30 - jdbc:postgresql://benefits.chpjdv8jgvym.us-east-1.rds.amazonaws.com:5432/postgres? postgres benefits
+2019-10-24 11:17:04 TRACE root:30 - Reimbursement [reimbursementId=2, startDate=2022-08-22, startTime=14:22, location=tampa, description=very, very descriptive, cost=999.0, gradingFormat=Audit, eventType=Seminar, justification=who's coming with me, dateSubmitted=2022-08-22, email=email@email.com, timeMissed=8, status=NEEDHEADAPPROV, totalAmount=950.0]
+2019-10-24 11:17:05 TRACE root:30 - get emp jdbcEmployee [email=email@email.com, password=test, firstName=first, lastName=last, phone=1234567890, role=EMPLOYEE, department=SALES]
+2019-10-24 13:43:43 TRACE root:30 - Reimbursement [reimbursementId=2, startDate=2022-08-22, startTime=14:22, location=tampa, description=very, very descriptive, cost=999.0, gradingFormat=Audit, eventType=Seminar, justification=who's coming with me, dateSubmitted=2022-08-22, email=email@email.com, timeMissed=8, status=NEEDHEADAPPROV, totalAmount=950.0]
+2019-10-24 13:43:43 TRACE root:30 - get emp jdbcEmployee [email=email@email.com, password=test, firstName=first, lastName=last, phone=1234567890, role=EMPLOYEE, department=SALES]
+2019-10-24 13:43:43 TRACE root:30 - Reimbursement [reimbursementId=2, startDate=2022-08-22, startTime=14:22, location=tampa, description=very, very descriptive, cost=999.0, gradingFormat=Audit, eventType=Seminar, justification=who's coming with me, dateSubmitted=2022-08-22, email=email@email.com, timeMissed=8, status=NEEDHEADAPPROV, totalAmount=950.0]
+2019-10-24 13:43:43 TRACE root:30 - get emp jdbcEmployee [email=email@email.com, password=test, firstName=first, lastName=last, phone=1234567890, role=EMPLOYEE, department=SALES]
+2019-10-24 13:59:12 TRACE root:30 - Reimbursement [reimbursementId=2, startDate=2022-08-22, startTime=14:22, location=tampa, description=very, very descriptive, cost=999.0, gradingFormat=Audit, eventType=Seminar, justification=who's coming with me, dateSubmitted=2022-08-22, email=email@email.com, timeMissed=8, status=NEEDHEADAPPROV, totalAmount=950.0]
+2019-10-24 13:59:12 TRACE root:30 - get emp jdbcEmployee [email=email@email.com, password=test, firstName=first, lastName=last, phone=1234567890, role=EMPLOYEE, department=SALES]
+2019-10-24 13:59:12 TRACE root:30 - Reimbursement [reimbursementId=2, startDate=2022-08-22, startTime=14:22, location=tampa, description=very, very descriptive, cost=999.0, gradingFormat=Audit, eventType=Seminar, justification=who's coming with me, dateSubmitted=2022-08-22, email=email@email.com, timeMissed=8, status=NEEDHEADAPPROV, totalAmount=950.0]
+2019-10-24 13:59:12 TRACE root:30 - get emp jdbcEmployee [email=email@email.com, password=test, firstName=first, lastName=last, phone=1234567890, role=EMPLOYEE, department=SALES]
+2019-10-24 14:00:16 TRACE root:30 - Reimbursement [reimbursementId=2, startDate=2022-08-22, startTime=14:22, location=tampa, description=very, very descriptive, cost=999.0, gradingFormat=Audit, eventType=Seminar, justification=who's coming with me, dateSubmitted=2022-08-22, email=email@email.com, timeMissed=8, status=NEEDHEADAPPROV, totalAmount=950.0]
+2019-10-24 14:00:16 TRACE root:30 - get emp jdbcEmployee [email=email@email.com, password=test, firstName=first, lastName=last, phone=1234567890, role=EMPLOYEE, department=SALES]
+2019-10-24 14:00:17 TRACE root:30 - Reimbursement [reimbursementId=2, startDate=2022-08-22, startTime=14:22, location=tampa, description=very, very descriptive, cost=999.0, gradingFormat=Audit, eventType=Seminar, justification=who's coming with me, dateSubmitted=2022-08-22, email=email@email.com, timeMissed=8, status=NEEDHEADAPPROV, totalAmount=950.0]
+2019-10-24 14:00:17 TRACE root:30 - get emp jdbcEmployee [email=email@email.com, password=test, firstName=first, lastName=last, phone=1234567890, role=EMPLOYEE, department=SALES]
+2019-10-24 14:07:55 TRACE root:30 - [Reimbursement [reimbursementId=1, startDate=2019-08-31, startTime=20:05, location=florida , description=i'm making this up to get out of work, cost=950.0, gradingFormat=Pass-Fail, eventType=Certification, justification=this is an amazing opportunity, dateSubmitted=2019-08-31, email=depthead@email.com, timeMissed=80, status=NEEDBENCOAPROV, totalAmount=920.0]]
+2019-10-24 14:09:13 TRACE root:30 - [Reimbursement [reimbursementId=2, startDate=2022-08-22, startTime=14:22, location=tampa, description=very, very descriptive, cost=999.0, gradingFormat=Audit, eventType=Seminar, justification=who's coming with me, dateSubmitted=2022-08-22, email=email@email.com, timeMissed=8, status=NEEDHEADAPPROV, totalAmount=950.0]]
+2019-10-24 14:09:13 TRACE root:30 - [Reimbursement [reimbursementId=2, startDate=2022-08-22, startTime=14:22, location=tampa, description=very, very descriptive, cost=999.0, gradingFormat=Audit, eventType=Seminar, justification=who's coming with me, dateSubmitted=2022-08-22, email=email@email.com, timeMissed=8, status=NEEDHEADAPPROV, totalAmount=950.0], Reimbursement [reimbursementId=1, startDate=2019-08-31, startTime=20:05, location=florida , description=i'm making this up to get out of work, cost=950.0, gradingFormat=Pass-Fail, eventType=Certification, justification=this is an amazing opportunity, dateSubmitted=2019-08-31, email=depthead@email.com, timeMissed=80, status=NEEDBENCOAPROV, totalAmount=920.0]]

@@ -17,7 +17,7 @@
     />
 
     <!--  -->
-    <link rel="stylesheet" href="login/login.component.css">
+    <link rel="stylesheet" href="login/login.component.css" />
 
     <!--  -->
     <link
@@ -45,20 +45,27 @@
     <div class="card">
       <h1 class="card-header">Sign in</h1>
       <div class="card-body">
-        <form action = "login" method = "POST">
+        <form action="login" method="POST">
           <div class="login-form-group">
-            <label for="user-email">Email address:</label>
-            <br>
-            <input type="email" class="login-form-control" id="user-email" name ="user-email"/>
+            <label for="employee-email" id="email-label">Email address:</label>
+            <br />
+            <input
+              type="email"
+              class="login-form-control"
+              id="employee-email"
+              name="employee-email"
+              required
+            />
           </div>
           <div class="login-form-group">
-            <label for="user-password">Password:</label>
-            <br>
+            <label for="employee-password" id="password-label">Password:</label>
+            <br />
             <input
               type="password"
               class="login-form-control"
-              id="user-password"
-              name ="user-password"
+              id="employee-password"
+              name="employee-password"
+              required
             />
           </div>
           <div class="login-form-group form-check">
@@ -72,7 +79,7 @@
               >Show password</label
             >
           </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn btn-danger">Submit</button>
         </form>
       </div>
     </div>

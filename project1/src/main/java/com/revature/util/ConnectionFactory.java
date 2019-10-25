@@ -1,12 +1,13 @@
 package com.revature.util;
 
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
+import static com.revature.util.LoggerUtil.*;
+
 public class ConnectionFactory {
 
 		private static String url;
@@ -42,7 +43,6 @@ public class ConnectionFactory {
 			try {
 				Class.forName("org.postgresql.Driver");
 				conn = DriverManager.getConnection(url, user, password);
-				
 			} catch (SQLException e) {
 				System.out.println("Failed to create connection");
 				e.printStackTrace();
