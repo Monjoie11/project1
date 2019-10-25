@@ -23,3 +23,20 @@ function addRowHandlersToAdmin() {
       row.className = "selectedAdmin";
     }
   }
+
+  function getAllMessages() {
+    let xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === 4) {
+        if (xhr.status === 200) {
+          displayMessages(JSON.parse(xhr.responseText));
+        } else {
+    //      window.alert("Failed to retireve message :(");
+        }
+      } else {
+    //    window.alert("Fetching Request");
+      }
+    };
+    xhr.open("GET", "message", true);
+    xhr.send();
+  }

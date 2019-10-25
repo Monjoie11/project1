@@ -33,7 +33,12 @@
         <!-- ! uncomment -->
         <script> 
             // window.onload = setInterval(getAllMessagesAndReimbursements, 60000);
-             window.onload = getAllMessagesAndReimbursements();
+             window.onload = function()
+             {DeleteRows(dtBasicExampleReimburse);
+              DeleteRows(dtBasicExampleMessage)  
+             getAllMessagesAndReimbursements();
+             }
+            
         </script>
 
         <!-- -->
