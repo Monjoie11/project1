@@ -1,7 +1,7 @@
 function addRowHandlers() {
   let table = document.getElementById("dtBasicExampleReimburse");
   let rows = table.getElementsByTagName("tr");
-  for (i = 0; i < rows.length; i++) {
+  for (i = 1; i < rows.length; i++) {
     let currentRow = table.rows[i];
     let createClickHandler = function(row) {
       return function() {
@@ -28,7 +28,7 @@ function doYourThing(row) {
 function addRowHandlersMsg() {
   let table = document.getElementById("dtBasicExampleMessage");
   let rows = table.getElementsByTagName("tr");
-  for (i = 0; i < rows.length; i++) {
+  for (i = 1; i < rows.length; i++) {
     let currentRow = table.rows[i];
     let createClickHandler = function(row) {
       return function() {
@@ -351,13 +351,17 @@ function deleteMsg(msg) {
   xhr.send(msg);
 }
 
-function deleteDupes(table_id){
+function deleteDupes(table_id) {
   let rowCount = table_id.rows.length;
   for (let i = rowCount - 1; i > 0; i--) {
-    for(let j = rowCount - 1; j > 0; j--){
-    //document.getElementById("dtBasicExampleReimburse")
-    if(table_id.rows[i].cells[0].innerHTML == table_id.rows[j].cells[0].innerHTML){
-      table_id.deleteRow(i)
+    for (let j = rowCount - 1; j > 0; j--) {
+      //document.getElementById("dtBasicExampleReimburse")
+      if (
+        table_id.rows[i].cells[0].innerHTML ==
+        table_id.rows[j].cells[0].innerHTML
+      ) {
+        table_id.deleteRow(i);
+      }
     }
   }
 }
