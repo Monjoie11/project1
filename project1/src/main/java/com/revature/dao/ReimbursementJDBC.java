@@ -155,6 +155,23 @@ public class ReimbursementJDBC implements ReimbursementDao {
 		
 	}
 	
+	
+	public void updateReimbursementAmount(int reimbursementId, double newTotal) {
+		
+	String sql = "update reimbursement set total_amount = ? where reimbursement_id = ?";
+		
+		try {
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setDouble(1, newTotal);;
+			stmt.setInt(2, reimbursementId);
+			stmt.executeUpdate();
+			trace("executing reimbursement total change ");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 
 
 

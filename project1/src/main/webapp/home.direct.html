@@ -35,6 +35,7 @@
         <script> 
             // window.onload = setInterval(getAllMessagesAndReimbursements, 60000);
             // window.onload = getAllMessagesAndReimbursements();
+            window.onload = function(){getAllReimbursementsAdmin(); getAllMessages();DeleteRows(dtBasicExampleReimburse)}
         </script>
 
         <!-- -->
@@ -489,7 +490,7 @@
                 </button>
               </div>
               <div class="modal-body mx-3">
-                  <form action = "" method="PUT" id="statusChangeForm">
+                  <form action = "reimbursement" method="PUT" id="statusChangeForm">
 
                       <div class="md-form mb-5">
                           <div class="form-group">
@@ -504,7 +505,7 @@
                   <div class="form-group">
                     <label data-error="wrong" data-success="right"
                       for="formNameEdit">Status: </label>
-                    <select class="form-control validate" id="formNameEdit"
+                    <select class="form-control validate" id="formNameEdit" name="action"
                       onclick="insertRequiredField()">
                       <option id="approved">Approved</option>
                       <option id="moreinfo">MoreInfo</option>

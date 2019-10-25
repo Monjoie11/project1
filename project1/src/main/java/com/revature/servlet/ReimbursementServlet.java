@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.revature.dao.ReimbursementJDBC;
 import com.revature.pojos.Employee;
 import com.revature.pojos.Message;
 import com.revature.pojos.Reimbursement;
@@ -23,7 +24,7 @@ public class ReimbursementServlet extends HttpServlet{
 
 	Reimbursement reimbursement = new Reimbursement();
 	ReimbursementImpl reimbursementImpl = new ReimbursementImpl();
-	
+	ReimbursementJDBC reimbursementJDBC = new ReimbursementJDBC();
 	
 	public ReimbursementServlet() {
 		super();
@@ -79,6 +80,30 @@ public class ReimbursementServlet extends HttpServlet{
 		trace(reimbursementList.toString());
 		response.setContentType("text/plain");
 		response.getWriter().write(om.writeValueAsString(reimbursementList));
+	}
+
+	@Override
+	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		int reimbursementId = Integer.parseInt(request.getParameter("reimbursementId"));
+		
+		Reimbursement reimbursement = reimbursementJDBC.getReimbursement(reimbursementId);
+		
+		
+		
+		HttpSession session;
+		session = request.getSession(false);
+		Employee employee = (Employee) session.getAttribute("employee");
+		String inputAction = request.getParameter("action");
+		
+		double totalAmount = Double.parseDouble(request.getParameter("newAmount"));
+		
+		trace(request.getParameter("newAmount") + request.getParameter("action"));
+		
+		reimbursementImpl.updateReimbursementStatus(reimbursement, employee, inputAction, totalAmount);
+		
+		
+		
 	}
 	
 	
