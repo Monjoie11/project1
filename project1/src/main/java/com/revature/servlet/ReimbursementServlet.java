@@ -85,22 +85,7 @@ public class ReimbursementServlet extends HttpServlet{
 	@Override
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		int reimbursementId = Integer.parseInt(request.getParameter("reimbursementId"));
-		
-		Reimbursement reimbursement = reimbursementJDBC.getReimbursement(reimbursementId);
-		
-		
-		
-		HttpSession session;
-		session = request.getSession(false);
-		Employee employee = (Employee) session.getAttribute("employee");
-		String inputAction = request.getParameter("action");
-		
-		double totalAmount = Double.parseDouble(request.getParameter("newAmount"));
-		
-		trace(request.getParameter("newAmount") + request.getParameter("action") + "reimb doPut");
-		
-		reimbursementImpl.updateReimbursementStatus(reimbursement, employee, inputAction, totalAmount);
+	//depricated
 		
 		
 		

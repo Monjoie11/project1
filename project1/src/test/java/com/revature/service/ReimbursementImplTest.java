@@ -37,8 +37,8 @@ public class ReimbursementImplTest {
 
 	@Test
 	public final void testUpdateReimbursementStatus() {
-		assertTrue(reimbursementImpl.updateReimbursementStatus(reimbursementJDBC.getReimbursement(2), employeeJDBC.getEmployee("email@email.com"), "Approved"));
-		assertFalse(!reimbursementImpl.updateReimbursementStatus(reimbursementJDBC.getReimbursement(2), employeeJDBC.getEmployee("email@email.com"), "Approved"));
+		assertTrue(reimbursementImpl.updateReimbursementStatus(reimbursementJDBC.getReimbursement(2), employeeJDBC.getEmployee("email@email.com"), "Approved", 500));
+		assertFalse(!reimbursementImpl.updateReimbursementStatus(reimbursementJDBC.getReimbursement(2), employeeJDBC.getEmployee("email@email.com"), "Approved", 500));
 	}
 
 	@SuppressWarnings("deprecation")

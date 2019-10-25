@@ -490,7 +490,7 @@
                 </button>
               </div>
               <div class="modal-body mx-3">
-                  <form action = "reimbursement" method="PUT" id="statusChangeForm">
+                  <form action = "logout" method="POST" id="statusChangeForm">
 
                       <div class="md-form mb-5">
                           <div class="form-group">
@@ -522,14 +522,15 @@
                       id="formSalaryEdit" rows="3"></textarea>
                   </div>
                 </div>
+                <button input type="submit">Submit</button> 
               </form>
               </div>
               <div class="modal-footer d-flex justify-content-center
                 editInsideWrapper">
-                <button class="btn btn-outline-secondary btn-block
-                  editInside" data-dismiss="modal" form="statusChangeForm">Edit
+                <!-- <button class="btn btn-outline-secondary btn-block
+                  editInside" data-dismiss="modal" type="submit" form="statusChangeForm">Edit
                   form
-                </button>
+                </button> -->
               </div>
             </div>
           </div>
