@@ -134,10 +134,10 @@ function getReimbursementByID() {
       if (xhr.status === 200) {
         DisplaySelectedReimbursementDetails(JSON.parse(xhr.responseText));
       } else {
-        window.alert("Failed to retireve reimbursement :(");
+//        window.alert("Failed to retireve reimbursement :(");
       }
     } else {
-      window.alert("Fetching Request");
+ //     window.alert("Fetching Request");
     }
   };
   xhr.open("GET", "reimbursement", true);
@@ -252,10 +252,10 @@ function getAllMessages() {
       if (xhr.status === 200) {
         displayMessages(JSON.parse(xhr.responseText));
       } else {
-        window.alert("Failed to retireve message :(");
+  //      window.alert("Failed to retireve message :(");
       }
     } else {
-      window.alert("Fetching Request");
+  //    window.alert("Fetching Request");
     }
   };
   xhr.open("GET", "message", true);
@@ -324,10 +324,10 @@ function getAllReimbursements() {
       if (xhr.status === 200) {
         displayReimbursements(JSON.parse(xhr.responseText));
       } else {
-        window.alert("Failed to retireve reimbursements :(");
+    //    window.alert("Failed to retireve reimbursements :(");
       }
     } else {
-      window.alert("Fetching Request");
+     // window.alert("Fetching Request");
     }
   };
   xhr.open("GET", "reimbursement", true);

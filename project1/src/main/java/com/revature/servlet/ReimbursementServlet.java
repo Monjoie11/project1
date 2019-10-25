@@ -34,8 +34,11 @@ public class ReimbursementServlet extends HttpServlet{
 		Employee employee = (Employee) request.getSession().getAttribute("employee");
 		
 		reimbursement.setReimbursementId(0);
+		
 		reimbursement.setStartDate(LocalDate.parse(request.getParameter("date")));
+		
 		reimbursement.setStartTime(LocalTime.parse(request.getParameter("time")));
+		
 		reimbursement.setLocation(request.getParameter("location"));
 		reimbursement.setDescription(request.getParameter("description"));
 		reimbursement.setCost(Double.parseDouble(request.getParameter("cost")));
