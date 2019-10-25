@@ -1,3 +1,6 @@
+
+
+
 function addRowHandlers() {
   let table = document.getElementById("dtBasicExampleReimburse");
   let rows = table.getElementsByTagName("tr");
@@ -231,6 +234,7 @@ function displayMessages(messages) {
   DeleteRows(dtBasicExampleMessage);
 
   for (message of messages) {
+    //deleteDupes(table);
     let newRow = table.insertRow(1); // inserting a new row to the table as the first row
 
     newRow.insertCell(0).innerHTML = message.messageId;
@@ -243,14 +247,17 @@ function displayMessages(messages) {
       "/" +
       message.dateCreated.year;
   }
-  deleteDupes(table);
+  
 }
 
 function getAllMessages() {
+  
   let xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function() {
     if (xhr.readyState === 4) {
       if (xhr.status === 200) {
+        let tableMsg = document.getElementById("dtBasicExampleMessage")
+        DeleteRows(tableMsg)
         displayMessages(JSON.parse(xhr.responseText));
       } else {
   //      window.alert("Failed to retireve message :(");
@@ -303,6 +310,7 @@ function displayReimbursements(reimbursements) {
   DeleteRows(dtBasicExampleReimburse);
 
   for (reimbursement of reimbursements) {
+     //deleteDupes(table)
     let newRow = table.insertRow(1); // inserting a new row to the table as the first row
 
     newRow.insertCell(0).innerHTML = reimbursement.reimbursementId;
@@ -317,10 +325,10 @@ function displayReimbursements(reimbursements) {
       reimbursement.dateSubmitted.year;
   }
 
-  deleteDupes(table)
 }
 
 function getAllReimbursements() {
+  
   let xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function() {
     if (xhr.readyState === 4) {
@@ -333,6 +341,8 @@ function getAllReimbursements() {
      // window.alert("Fetching Request");
     }
   };
+  let tableReim = document.getElementById("dtBasicExampleReimburse")
+  DeleteRows(tableReim)
   xhr.open("GET", "reimbursement", true);
   xhr.send();
 }
@@ -357,11 +367,21 @@ function deleteDupes(table_id) {
     for (let j = rowCount - 1; j > 0; j--) {
       //document.getElementById("dtBasicExampleReimburse")
       if (
-        table_id.rows[i].cells[0].innerHTML ==
-        table_id.rows[j].cells[0].innerHTML
+        table_id.rows[i].cells[0].innerHTML ===
+        table_id.rows[j].cells[0].innerHTML &&
+        i != j
       ) {
-        table_id.deleteRow(i);
+        table_id.rows[i].className = "markedForDelete";
       }
     }
+  }
+
+  let deleteThese = document.getElementsByClassName("markedForDelete")
+  let useThis = deleteThese.length
+  for(let i = 0; i < useThis; i++){
+    deleteThese[i].id = i;
+  }
+  for(let i = 0; i < useThis/2; i++){
+    document.getElementById(i).remove();
   }
 }
