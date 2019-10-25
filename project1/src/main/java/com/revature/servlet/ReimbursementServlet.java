@@ -98,7 +98,7 @@ public class ReimbursementServlet extends HttpServlet{
 		
 		double totalAmount = Double.parseDouble(request.getParameter("newAmount"));
 		
-		trace(request.getParameter("newAmount") + request.getParameter("action"));
+		trace(request.getParameter("newAmount") + request.getParameter("action") + "reimb doPut");
 		
 		reimbursementImpl.updateReimbursementStatus(reimbursement, employee, inputAction, totalAmount);
 		
