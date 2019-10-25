@@ -331,6 +331,7 @@ function getAllReimbursements() {
      // window.alert("Fetching Request");
     }
   };
+  deleteDupes("dtBasicExampleReimburse");
   xhr.open("GET", "reimbursement", true);
   xhr.send();
 }
@@ -347,4 +348,30 @@ function deleteMsg(msg) {
 
   xhr.open("DELETE", "message", true);
   xhr.send(msg);
+}
+
+function deleteDupes(table_id) {
+  let table_id = document.getElementById(table_id)
+  let rowCount = table_id.rows.length;
+  for (let i = rowCount - 1; i > 0; i--) {
+    for (let j = rowCount - 1; j > 0; j--) {
+      //document.getElementById("dtBasicExampleReimburse")
+      if (
+        table_id.rows[i].cells[0].innerHTML ===
+        table_id.rows[j].cells[0].innerHTML &&
+        i != j
+      ) {
+        table_id.rows[i].className = "markedForDelete";
+      }
+    }
+  }
+
+  let deleteThese = document.getElementsByClassName("markedForDelete")
+  let useThis = deleteThese.length
+  for(let i = 0; i < useThis; i++){
+    deleteThese[i].id = i;
+  }
+  for(let i = 0; i < useThis/2; i++){
+    document.getElementById(i).remove();
+  }
 }
